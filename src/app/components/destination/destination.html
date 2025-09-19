@@ -1,0 +1,63 @@
+<section class="page-hero">
+  <div class="container">
+    <h1>Explore Destinations</h1>
+    <p>
+      Handpicked places to inspire your next trip — beaches, mountains, culture and wild safaris.
+    </p>
+  </div>
+</section>
+
+<!-- Controls -->
+<main class="section">
+  <div class="container">
+    <div class="controls dest-controls">
+      <div class="search-wrap">
+        <input id="searchInput" placeholder="Search destinations (e.g. Bali, Santorini)..." />
+      </div>
+
+      <div class="filter-wrap">
+        <select id="countryFilter" title="Filter by Country">
+          <option value="">All countries</option>
+        </select>
+
+        <select id="ratingFilter" title="Filter by Rating">
+          <option value="">Min rating</option>
+          <option value="4.9">4.9</option>
+          <option value="4.8">4.8</option>
+          <option value="4.7">4.7</option>
+          <option value="4.6">4.6</option>
+        </select>
+
+        <select id="sortSelect" title="Sort Destinations">
+          <option value="featured">Sort: Featured</option>
+          <option value="rating-desc">Rating: High → Low</option>
+          <option value="rating-asc">Rating: Low → High</option>
+          <option value="name-asc">Name A → Z</option>
+          <option value="name-desc">Name Z → A</option>
+        </select>
+
+        <button id="clearFilters" class="submit-btn">Clear</button>
+      </div>
+    </div>
+
+    <!-- Grid -->
+    <div id="destGrid" class="destinations-grid"></div>
+
+    <!-- empty / results count -->
+    <div id="resultsInfo" style="margin-top: 18px; color: var(--gray)"></div>
+  </div>
+</main>
+
+<!-- Destination Modal -->
+<div id="destModal" class="modal hide" aria-hidden="true">
+  <div class="modal-body" role="dialog" aria-modal="true" aria-labelledby="modalTitle">
+    <button
+      id="modalClose"
+      class="submit-btn"
+      style="float: right; background: #fff; color: var(--primary); border: 1px solid #e2e8f0"
+    >
+      Close
+    </button>
+    <div id="modalContent"></div>
+  </div>
+</div>

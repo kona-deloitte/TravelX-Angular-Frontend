@@ -1,0 +1,53 @@
+<!-- Hero -->
+<section class="page-hero">
+  <div class="container">
+    <h1>Our Packages</h1>
+    <p>Choose from curated travel packages — handpicked stays, experiences and transfers.</p>
+  </div>
+</section>
+
+<main class="section">
+  <div class="container">
+    <div class="controls">
+      <div class="search-wrap">
+        <input id="searchInput" placeholder="Search packages (e.g. Bali, Maldives)..." />
+      </div>
+
+      <div class="filter-wrap">
+        <select id="sortSelect" title="Sort Packages">
+          <option value="relevance">Sort: Relevance</option>
+          <option value="price-asc">Price: Low → High</option>
+          <option value="price-desc">Price: High → Low</option>
+          <option value="rating-desc">Rating: High → Low</option>
+        </select>
+
+        <input id="minPrice" placeholder="Min price (₹)" inputmode="numeric" />
+        <input id="maxPrice" placeholder="Max price (₹)" inputmode="numeric" />
+        <select id="nightsFilter" title="Filter by Nights">
+          <option value="">Any nights</option>
+          <option value="<=3">&le; 3 nights</option>
+          <option value="4-5">4 - 5 nights</option>
+          <option value=">=6">&ge; 6 nights</option>
+        </select>
+
+        <button id="clearFilters" class="submit-btn">Clear</button>
+      </div>
+    </div>
+
+    <div id="packagesGrid" class="packages-grid"></div>
+  </div>
+</main>
+
+<!-- Package Detail Modal -->
+<div id="packageModal" class="modal hide" aria-hidden="true">
+  <div class="modal-body">
+    <button
+      id="modalClose"
+      class="submit-btn"
+      style="float: right; background: #fff; color: var(--primary); border: 1px solid #e2e8f0"
+    >
+      Close
+    </button>
+    <div id="modalContent"></div>
+  </div>
+</div>

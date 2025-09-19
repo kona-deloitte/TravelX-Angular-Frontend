@@ -1,0 +1,181 @@
+<!-- LEFT: Booking Form -->
+<div>
+  <div class="form-container">
+    <h2 style="margin-bottom: 18px">Traveler & Booking Details</h2>
+
+    <form id="bookingForm" novalidate>
+      <!-- Personal -->
+      <div class="form-group">
+        <label for="name">Full Name *</label>
+        <input id="name" name="name" type="text" placeholder="Your full name" required />
+        <span class="error-message" id="err-name"></span>
+      </div>
+
+      <div class="form-row">
+        <div class="form-group">
+          <label for="email">Email *</label>
+          <input id="email" name="email" type="email" placeholder="you@example.com" required />
+          <span class="error-message" id="err-email"></span>
+        </div>
+
+        <div class="form-group">
+          <label for="phone">Phone *</label>
+          <input id="phone" name="phone" type="tel" placeholder="+91XXXXXXXXXX" required />
+          <span class="error-message" id="err-phone"></span>
+        </div>
+      </div>
+
+      <!-- Travel details -->
+      <div class="form-group">
+        <label for="destination">Destination *</label>
+        <select id="destination" name="destination" required></select>
+        <span class="error-message" id="err-destination"></span>
+      </div>
+
+      <div class="form-group">
+        <label for="packageSelect">Package *</label>
+        <select id="packageSelect" name="packageSelect" required></select>
+        <small id="packageHint" style="display: block; margin-top: 6px; color: var(--gray)"></small>
+        <span class="error-message" id="err-package"></span>
+      </div>
+
+      <div class="form-row">
+        <div class="form-group">
+          <label for="startDate">Start Date *</label>
+          <input id="startDate" name="startDate" type="date" required />
+          <span class="error-message" id="err-startDate"></span>
+        </div>
+
+        <div class="form-group">
+          <label for="endDate">End Date *</label>
+          <input id="endDate" name="endDate" type="date" required />
+          <span class="error-message" id="err-endDate"></span>
+        </div>
+      </div>
+
+      <div class="form-group">
+        <label>Number of People *</label>
+        <div style="display: flex; gap: 10px; align-items: center">
+          <button type="button" class="qty-btn" id="decPeople">-</button>
+          <input
+            id="numberOfPeople"
+            name="numberOfPeople"
+            type="number"
+            value="1"
+            min="1"
+            style="width: 80px; text-align: center"
+            required
+          />
+          <button type="button" class="qty-btn" id="incPeople">+</button>
+        </div>
+        <span class="error-message" id="err-people"></span>
+      </div>
+
+      <!-- Accommodation -->
+      <div style="margin-top: 12px; font-weight: 600; color: var(--dark); margin-bottom: 8px">
+        Accommodation Preferences
+      </div>
+      <div class="form-row">
+        <div class="form-group">
+          <label for="roomType">Room Type</label>
+          <select id="roomType" name="roomType">
+            <option>Standard</option>
+            <option>Deluxe</option>
+            <option>Suite</option>
+          </select>
+        </div>
+        <div class="form-group">
+          <label for="mealPlan">Meal Plan</label>
+          <select id="mealPlan" name="mealPlan">
+            <option>Room only</option>
+            <option>Breakfast</option>
+            <option>Half board (breakfast + dinner)</option>
+            <option>Full board (all meals)</option>
+          </select>
+        </div>
+      </div>
+
+      <div class="form-row">
+        <div class="form-group">
+          <label for="bedType">Bed Type</label>
+          <select id="bedType" name="bedType">
+            <option>Double</option>
+            <option>Twin</option>
+            <option>Single</option>
+          </select>
+        </div>
+
+        <div class="form-group">
+          <label for="rooms">Rooms</label>
+          <input id="rooms" name="rooms" type="number" value="1" min="1" />
+        </div>
+      </div>
+
+      <!-- Transport & Arrival -->
+      <div style="margin-top: 12px; font-weight: 600; color: var(--dark); margin-bottom: 8px">
+        Transport & Arrival
+      </div>
+      <div class="form-row">
+        <div class="form-group">
+          <label for="transportMode">Transport Mode</label>
+          <select id="transportMode" name="transportMode">
+            <option>Flight</option>
+            <option>Train</option>
+            <option>Bus</option>
+            <option>Self drive</option>
+          </select>
+        </div>
+        <div class="form-group">
+          <label for="flightNumber">Flight / Train No. (optional)</label>
+          <input id="flightNumber" name="flightNumber" type="text" placeholder="AI-123 / 12345" />
+        </div>
+      </div>
+
+      <div class="form-row">
+        <div class="form-group">
+          <label for="arrivalTime">Arrival Time (optional)</label>
+          <input id="arrivalTime" name="arrivalTime" type="time" />
+        </div>
+        <div class="form-group">
+          <label for="departureTime">Departure Time (optional)</label>
+          <input id="departureTime" name="departureTime" type="time" />
+        </div>
+      </div>
+
+      <!-- Extras and special requests -->
+      <div style="margin-top: 12px; font-weight: 600; color: var(--dark); margin-bottom: 8px">
+        Extras & Requests
+      </div>
+      <div style="display: flex; flex-wrap: wrap; gap: 12px; margin-bottom: 12px">
+        <label><input type="checkbox" id="airportTransfer" /> Airport transfer</label>
+        <label><input type="checkbox" id="travelInsurance" /> Travel insurance</label>
+        <label><input type="checkbox" id="privateGuide" /> Private guide</label>
+        <label><input type="checkbox" id="wheelchair" /> Special assistance</label>
+      </div>
+
+      <div class="form-group">
+        <label for="specialRequests">Special Requests (max 500 chars)</label>
+        <textarea
+          id="specialRequests"
+          maxlength="500"
+          rows="4"
+          placeholder="Dietary requests, mobility requirements, celebration notes..."
+        ></textarea>
+        <div class="char-count" id="specialRequestsCount">0 / 500</div>
+      </div>
+
+      <div style="display: flex; gap: 12px; margin-top: 18px; align-items: center">
+        <button type="submit" class="submit-btn" id="booking-form-submit">Confirm Booking</button>
+        <button
+          type="button"
+          id="saveDraftBtn"
+          class="submit-btn"
+          style="background: #fff; color: var(--primary); border: 1px solid #e2e8f0"
+        >
+          Save Draft
+        </button>
+      </div>
+      <div id="bookingMessage" class="form-message" style="margin-top: 14px"></div>
+    </form>
+  </div>
+</div>
