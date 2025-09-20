@@ -1,0 +1,12 @@
+.booking-grid {
+        display: grid;
+        grid-template-columns: 1fr 360px;
+        gap: 28px;
+        align-items: start;
+      }
+
+      @media (max-width: 992px) {
+        .booking-grid {
+          grid-template-columns: 1fr;
+        }
+      }

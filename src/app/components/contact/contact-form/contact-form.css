@@ -1,0 +1,11 @@
+/* Red border for invalid fields */
+.invalid-field {
+  border: 1px solid red;
+}
+
+/* Success message style */
+.success-message {
+  color: green;
+  font-weight: 600;
+  margin-bottom: 12px;
+}

@@ -1,0 +1,63 @@
+      .form-container h2 {
+        font-size: 1.5rem;
+        color: var(--dark);
+      }
+
+      /* Quantity buttons */
+      .qty-btn {
+        background: #fff;
+        border: 1px solid #e2e8f0;
+        padding: 6px 10px;
+        font-size: 18px;
+        border-radius: 8px;
+        cursor: pointer;
+      }
+
+      /* Modal */
+      .modal {
+        position: fixed;
+        inset: 0;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        background: rgba(2, 6, 23, 0.45);
+        z-index: 1200;
+      }
+      .modal-body {
+        background: var(--white);
+        padding: 24px;
+        border-radius: 12px;
+        width: min(520px, 94%);
+        box-shadow: var(--shadow-xl);
+      }
+      .modal.hide {
+        display: none !important;
+      }
+
+      /* small preview card */
+      #previewCard {
+        font-size: 0.95rem;
+      }
+
+      /* package preview styling inside previewCard */
+      .preview-title {
+        font-weight: 700;
+        margin-bottom: 6px;
+      }
+      .preview-detail {
+        color: var(--gray);
+        margin-bottom: 6px;
+      }
+
+      /* small form tweaks */
+      .form-group input,
+      .form-group select,
+      .form-group textarea {
+        border-radius: 8px;
+      }
+
+      @media (max-width: 480px) {
+        .page-hero {
+          padding: 80px 12px 40px;
+        }
+      }
