@@ -14,12 +14,18 @@
           id="searchInput"
           placeholder="Search packages (e.g. Bali, Maldives)..."
           [(ngModel)]="searchInput"
-          (input)="updateSearchFilter()"
+          (input)="updateFilters()"
         />
       </div>
 
       <div class="filter-wrap">
-        <select id="sortSelect" title="Sort Packages" (change)="updateSortFilter($event)">
+        <select
+          [(ngModel)]="selectedSort"
+          id="sortSelect"
+          title="Sort Packages"
+          (change)="updateFilters()"
+          aria-placeholder="Sort"
+        >
           <option value="relevance">Sort: Relevance</option>
           <option value="price-asc">Price: Low → High</option>
           <option value="price-desc">Price: High → Low</option>
@@ -31,16 +37,21 @@
           placeholder="Min price (₹)"
           inputmode="numeric"
           [(ngModel)]="minPrice"
-          (input)="updateRangeFilter()"
+          (input)="updateFilters()"
         />
         <input
           id="maxPrice"
           placeholder="Max price (₹)"
           inputmode="numeric"
           [(ngModel)]="maxPrice"
-          (input)="updateRangeFilter()"
+          (input)="updateFilters()"
         />
-        <select id="nightsFilter" title="Filter by Nights" (change)="updateNightsFilter($event)">
+        <select
+          id="nightsFilter"
+          title="Filter by Nights"
+          [(ngModel)]="numberofNights"
+          (change)="updateFilters()"
+        >
           <option value="">Any nights</option>
           <option value="<=3">&le; 3 nights</option>
           <option value="4-5">4 - 5 nights</option>
@@ -55,7 +66,7 @@
       @for(package of packageList; track package.title){
       <div class="package-card" data-id="{{ package.title }}">
         <div class="package-image">
-          <img [src]="package.img" [alt]="package.img" loading="lazy" />
+          <img [src]="package.img" [alt]="package.img" loading="eager" />
           <div class="package-price">{{ package.price }}</div>
         </div>
         <div class="package-body">
@@ -70,10 +81,11 @@
             {{ package.location.split(',')[0] }}.
           </p>
           <div class="card-actions">
-            <button class="book-now" data-id="{{ package.title }}">Book Now</button>
-            <button class="details-btn" data-id="{{ package.title }}">View Details</button>
-            <button title="Add to wishlist" class="wishlist-btn" data-id="{{ package.title }}">
-              ♡
+            <button class="book-now" data-id="{{ package.title }}" routerLink="/booking">
+              Book Now
+            </button>
+            <button class="details-btn" data-id="{{ package.title }}" (click)="openModal(package)">
+              View Details
             </button>
           </div>
         </div>
@@ -86,16 +98,11 @@
   </div>
 </main>
 
-<!-- Package Detail Modal
-<div id="packageModal" class="modal hide" aria-hidden="true">
-  <div class="modal-body">
-    <button
-      id="modalClose"
-      class="submit-btn"
-      style="float: right; background: #fff; color: var(--primary); border: 1px solid #e2e8f0"
-    >
-      Close
-    </button>
-    <div id="modalContent"></div>
-  </div>
-</div> -->
+@if(packageDetailModalVisible()){
+
+<app-package-details
+  [package]="selectedPackage()"
+  (closeModal)="closeModal()"
+></app-package-details>
+
+}

@@ -1,0 +1,81 @@
+<!-- Package Detail Modal -->
+<div id="packageModal" class="modal">
+  <div class="modal-body">
+    <button
+      id="modalClose"
+      class="submit-btn"
+      style="float: right; background: #fff; color: var(--primary); border: 1px solid #e2e8f0"
+      (click)="close()"
+    >
+      Close
+    </button>
+    <div id="modalContent">
+      <div
+        style="width: 100%; display: flex; gap: 18px; align-items: flex-start"
+        class="modal-grid"
+      >
+        <div style="width: 90%; margin-left: 5%; margin-right: 5%">
+          <img
+            [src]="package?.img"
+            alt="{{ package?.title }}"
+            style="width: 100%; height: 320px; object-fit: cover; border-radius: 8px"
+          />
+          <h2 style="margin-top: 12px">{{ package?.title }}</h2>
+          <div style="color: var(--gray); margin-bottom: 8px">
+            {{ package?.location }} • <span class="rating">★ {{ package?.rating }}</span>
+          </div>
+          <p>
+            {{ package?.title }} is a premium travel package offering curated experiences,
+            comfortable stays and guided activities. Below is a sample itinerary.
+          </p>
+          <div class="itinerary">
+            <strong>Sample itinerary:</strong>
+            <ol style="margin: 8px 0 0 18px">
+              <li>Arrival & transfer — welcome meeting</li>
+              <li>City highlights & guided tour</li>
+              <li>Leisure day / optional experience</li>
+              <li>Departure after breakfast</li>
+            </ol>
+          </div>
+          <div style="margin-top: 12px; place-self: center">
+            <strong>What's included</strong>
+            <ul style="color: var(--gray); margin-top: 8px">
+              <li>Accommodation as per package</li>
+              <li>Daily breakfast & selected meals</li>
+              <li>Transfers & local guided tours</li>
+            </ul>
+          </div>
+        </div>
+        <aside style="min-width: 260px">
+          <div
+            style="
+              background: var(--white);
+              padding: 12px;
+              border-radius: 10px;
+              box-shadow: var(--shadow-md);
+            "
+          >
+            <div style="display: flex; justify-content: space-between; align-items: center">
+              <div>
+                <strong>{{ package?.price }}</strong>
+              </div>
+              <div class="small">{{ package?.nights }}</div>
+            </div>
+            <div style="margin-top: 10px">
+              <button id="modalBook" class="book-now" style="width: 100%" routerLink="/booking">
+                Book This Package
+              </button>
+            </div>
+
+            <div style="margin-top: 14px; color: var(--gray); font-size: 0.95rem">
+              <div><strong>Cancellation:</strong> Free up to 14 days (selected packages)</div>
+              <div style="margin-top: 8px">
+                <strong>Support:</strong> 24/7 helpline +91 98765 43210
+              </div>
+            </div>
+          </div>
+        </aside>
+      </div>
+    </div>
+  </div>
+</div>

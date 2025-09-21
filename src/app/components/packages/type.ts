@@ -2,7 +2,7 @@ type packages = {
   title: string;
   price: string;
   nights: string;
-  rating: Number;
+  rating: number;
   location: string;
   img: string;
 };
