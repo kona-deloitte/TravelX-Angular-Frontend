@@ -28,12 +28,10 @@ onSubmit(form: NgForm) {
     alert("✅ Your message has been successfully submitted! We will get back to you ASAP.");
     console.log("Form Data:", this.contact);
 
-    // Optionally clear the form after success
     form.resetForm({
       preferredContact: 'Email'
     });
   } else {
-    // Mark all controls as touched so their errors show up
     Object.values(form.controls).forEach(control => {
       control.markAsTouched();
     });
