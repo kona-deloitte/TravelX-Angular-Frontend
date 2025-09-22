@@ -5,6 +5,7 @@ export interface destinations {
   rating: number;
   desc: string;
   img?: string;
+  images?: string[];
   video?: string;
   slug: string;
   highlights?: string[];
