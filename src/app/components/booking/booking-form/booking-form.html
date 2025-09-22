@@ -59,7 +59,7 @@
         <label for="destination">Destination *</label>
         <select id="destination" formControlName="destination" class="form-control">
           <option value="" disabled>Select a destination</option>
-          <option *ngFor="let d of DESTINATIONS" [value]="d.id">
+          <option *ngFor="let d of DESTINATIONS" [value]="d.title">
             {{ d.title }} ({{ d.location }})
           </option>
         </select>
@@ -75,7 +75,7 @@
         <label for="packageSelect">Package *</label>
         <select id="packageSelect" name="packageSelect" formControlName="packageSelect" required>
           <option value="" disabled>Select a package</option>
-          <option *ngFor="let p of PACKAGES" [value]="p.id">
+          <option *ngFor="let p of PACKAGES" [value]="p.title">
             {{ p.title }} — {{ p.nights }} ({{ p.location }})
           </option>
         </select>

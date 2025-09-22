@@ -1,7 +1,7 @@
 import { Routes } from '@angular/router';
 import { Home } from './components/home/home/home';
 import { About } from './components/about/about/about';
-import { Packages } from './components/packages/packages';
+import { Packages } from './components/packages/packages/packages';
 import { Destination } from './components/destination/destination';
 import { Booking } from './components/booking/booking/booking';
 import { Contact } from './components/contact/contact/contact';

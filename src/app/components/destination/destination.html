@@ -1,3 +1,4 @@
+<!-- Hero Section -->
 <section class="page-hero">
   <div class="container">
     <h1>Explore Destinations</h1>
@@ -7,20 +8,36 @@
   </div>
 </section>
 
-<!-- Controls -->
+<!-- Main Section -->
 <main class="section">
   <div class="container">
+
+    <!-- Controls -->
     <div class="controls dest-controls">
       <div class="search-wrap">
-        <input id="searchInput" placeholder="Search destinations (e.g. Bali, Santorini)..." />
+        <input
+          type="text"
+          placeholder="Search destinations (e.g. Bali, Santorini)..."
+          [(ngModel)]="searchTerm"
+          (input)="applyFilters()" />
       </div>
 
       <div class="filter-wrap">
-        <select id="countryFilter" title="Filter by Country">
+        <!-- <select [(ngModel)]="selectedCountry" (change)="applyFilters()" title="Filter by Country">
           <option value="">All countries</option>
+          <option *ngFor="let country of (destinations.map(d => d.location) | unique)" [value]="country">
+            {{ country }}
+          </option>
+        </select> -->
+        <select [(ngModel)]="selectedCountry" (change)="applyFilters()">
+          <option value="">All Countries</option>
+          <option *ngFor="let country of countries" [value]="country">
+            {{ country }}
+          </option>
         </select>
 
-        <select id="ratingFilter" title="Filter by Rating">
+
+        <select [(ngModel)]="minRating" (change)="applyFilters()" title="Filter by Rating">
           <option value="">Min rating</option>
           <option value="4.9">4.9</option>
           <option value="4.8">4.8</option>
@@ -28,36 +45,86 @@
           <option value="4.6">4.6</option>
         </select>
 
-        <select id="sortSelect" title="Sort Destinations">
+        <select [(ngModel)]="sortOption" (change)="applyFilters()" title="Sort Destinations">
           <option value="featured">Sort: Featured</option>
-          <option value="rating-desc">Rating: High → Low</option>
-          <option value="rating-asc">Rating: Low → High</option>
-          <option value="name-asc">Name A → Z</option>
-          <option value="name-desc">Name Z → A</option>
+          <option value="ratingHighLow">Rating: High → Low</option>
+          <option value="ratingLowHigh">Rating: Low → High</option>
+          <option value="nameAZ">Name A → Z</option>
+          <option value="nameZA">Name Z → A</option>
         </select>
 
-        <button id="clearFilters" class="submit-btn">Clear</button>
+        <button (click)="clearFilters()" class="submit-btn">Clear</button>
       </div>
     </div>
 
     <!-- Grid -->
-    <div id="destGrid" class="destinations-grid"></div>
+    <div class="destinations-grid">
+      <div *ngFor="let d of filteredDestinations" class="destination-card">
+        <video 
+          *ngIf="d.video; else showImage"
+          [src]="d.video" 
+          autoplay 
+          muted 
+          loop 
+          playsinline
+          class="media-video">
+        </video>
+
+        <ng-template #showImage>
+          <img [src]="d.img" [alt]="d.title" />
+        </ng-template>
+
+        <h3>{{ d.title }}</h3>
+        <p class="location">{{ d.location }}</p>
+        <p class="rating">⭐ {{ d.rating }}</p>
+        <p>{{ d.desc }}</p>
+
+        <div class="actions">
+          <button (click)="toggleWishlist(d.id)">
+            {{ isWishlisted(d.id) ? '♥ Remove' : '♡ Wishlist' }}
+          </button>
+          <button (click)="selectedDest = d" class="submit-btn">View Details</button>
+          <a [routerLink]="['/booking']" [queryParams]="{ destination: d.slug }" class="submit-btn">Book Now</a>
+        </div>
+      </div>
+    </div>
 
     <!-- empty / results count -->
-    <div id="resultsInfo" style="margin-top: 18px; color: var(--gray)"></div>
+    <div id="resultsInfo" style="margin-top: 18px; color: var(--gray)">
+      {{ resultsInfo }}
+    </div>
   </div>
 </main>
 
 <!-- Destination Modal -->
-<div id="destModal" class="modal hide" aria-hidden="true">
-  <div class="modal-body" role="dialog" aria-modal="true" aria-labelledby="modalTitle">
-    <button
-      id="modalClose"
-      class="submit-btn"
-      style="float: right; background: #fff; color: var(--primary); border: 1px solid #e2e8f0"
-    >
+<div class="modal" *ngIf="selectedDest">
+  <div class="modal-body" role="dialog" aria-modal="true">
+    <button (click)="selectedDest = null" class="submit-btn close-btn">
       Close
     </button>
-    <div id="modalContent"></div>
+
+    <div class="modal-content">
+      <h2>{{ selectedDest.title }}</h2>
+      <img [src]="selectedDest.img" [alt]="selectedDest.title" />
+      <p><strong>Location:</strong> {{ selectedDest.location }}</p>
+      <p><strong>Rating:</strong> ⭐ {{ selectedDest.rating }}</p>
+      <p>{{ selectedDest.desc }}</p>
+
+      <div *ngIf="selectedDest.highlights?.length">
+        <h3>Highlights</h3>
+        <ul>
+          <li *ngFor="let h of selectedDest.highlights">{{ h }}</li>
+        </ul>
+      </div>
+
+      <div *ngIf="selectedDest.itinerary?.length">
+        <h3>Itinerary</h3>
+        <ul>
+          <li *ngFor="let i of selectedDest.itinerary">{{ i }}</li>
+        </ul>
+      </div>
+
+      <a *ngIf="selectedDest.mapUrl" [href]="selectedDest.mapUrl" target="_blank">View on Map</a>
+    </div>
   </div>
 </div>

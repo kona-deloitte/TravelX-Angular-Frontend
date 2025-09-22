@@ -1,0 +1,108 @@
+<!-- Hero -->
+<section class="page-hero">
+  <div class="container">
+    <h1>Our Packages</h1>
+    <p>Choose from curated travel packages — handpicked stays, experiences and transfers.</p>
+  </div>
+</section>
+
+<main class="section">
+  <div class="container">
+    <div class="controls">
+      <div class="search-wrap">
+        <input
+          id="searchInput"
+          placeholder="Search packages (e.g. Bali, Maldives)..."
+          [(ngModel)]="searchInput"
+          (input)="updateFilters()"
+        />
+      </div>
+
+      <div class="filter-wrap">
+        <select
+          [(ngModel)]="selectedSort"
+          id="sortSelect"
+          title="Sort Packages"
+          (change)="updateFilters()"
+          aria-placeholder="Sort"
+        >
+          <option value="relevance">Sort: Relevance</option>
+          <option value="price-asc">Price: Low → High</option>
+          <option value="price-desc">Price: High → Low</option>
+          <option value="rating-desc">Rating: High → Low</option>
+        </select>
+
+        <input
+          id="minPrice"
+          placeholder="Min price (₹)"
+          inputmode="numeric"
+          [(ngModel)]="minPrice"
+          (input)="updateFilters()"
+        />
+        <input
+          id="maxPrice"
+          placeholder="Max price (₹)"
+          inputmode="numeric"
+          [(ngModel)]="maxPrice"
+          (input)="updateFilters()"
+        />
+        <select
+          id="nightsFilter"
+          title="Filter by Nights"
+          [(ngModel)]="numberofNights"
+          (change)="updateFilters()"
+        >
+          <option value="">Any nights</option>
+          <option value="<=3">&le; 3 nights</option>
+          <option value="4-5">4 - 5 nights</option>
+          <option value=">=6">&ge; 6 nights</option>
+        </select>
+
+        <button id="clearFilters" class="submit-btn" (click)="resetFilter()">Clear</button>
+      </div>
+    </div>
+
+    <div id="packagesGrid" class="packages-grid">
+      @for(package of packageList; track package.title){
+      <div class="package-card" data-id="{{ package.title }}">
+        <div class="package-image">
+          <img [src]="package.img" [alt]="package.img" loading="eager" />
+          <div class="package-price">{{ package.price }}</div>
+        </div>
+        <div class="package-body">
+          <h3>{{ package.title }}</h3>
+          <p class="small">{{ package.location }}</p>
+          <div class="package-meta">
+            <div class="tag">{{ package.nights }}</div>
+            <div class="rating">★ {{ package.rating }}</div>
+          </div>
+          <p>
+            {{ package.title }} — a carefully curated trip including highlights of
+            {{ package.location.split(',')[0] }}.
+          </p>
+          <div class="card-actions">
+            <button class="book-now" data-id="{{ package.title }}" routerLink="/booking">
+              Book Now
+            </button>
+            <button class="details-btn" data-id="{{ package.title }}" (click)="openModal(package)">
+              View Details
+            </button>
+          </div>
+        </div>
+      </div>
+
+      }@empty {
+      <div class="empty-state">No packages found for your filters.</div>
+      }
+    </div>
+  </div>
+</main>
+
+@if(packageDetailModalVisible()){
+
+<app-package-details
+  [package]="selectedPackage()"
+  (closeModal)="closeModal()"
+></app-package-details>
+
+}
