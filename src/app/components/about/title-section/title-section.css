@@ -1,0 +1,59 @@
+ .page-hero {
+  background: var(--gradient-hero);
+  color: var(--white);
+  padding: 120px 0 60px;
+  text-align: center;
+  margin-top: 80px;
+}
+
+.page-hero h1 {
+  font-size: 3rem;
+  margin-bottom: 10px;
+}
+
+.page-hero p {
+  font-size: 1.25rem;
+  opacity: 0.9;
+}
+
+      /* ===== About Section ===== */
+      .about-grid {
+        display: flex;
+        gap: 2rem;
+        align-items: flex-start;
+        margin: 1.5rem 0 3rem 0;
+      }
+      .about-images img {
+        width: 100%;
+        border-radius: 12px;
+        object-fit: cover;
+        margin-left: 20px;
+        box-shadow: 0 4px 12px rgba(0,0,0,0.1)  ;
+      }
+      .about-text {
+        flex: 2;
+        margin-left: 20px;
+      }
+
+      /* ===== Stats Grid 2x2 ===== */
+      .stats-grid {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        gap: 2rem;
+        margin-top: 2rem;
+        text-align: center;
+      }
+      .stat-card img {
+        width: 60px;
+        height: 60px;
+        object-fit: cover;
+        margin-bottom: 0.5rem;
+      }
+      .stat-value {
+        font-size: 1.5rem;
+        font-weight: bold;
+      }
+      .stat-label {
+        color: #555;
+      }
+
