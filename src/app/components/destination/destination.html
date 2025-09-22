@@ -80,9 +80,7 @@
         <p>{{ d.desc }}</p>
 
         <div class="actions">
-          <button (click)="toggleWishlist(d.id)">
-            {{ isWishlisted(d.id) ? '♥ Remove' : '♡ Wishlist' }}
-          </button>
+          
           <button (click)="selectedDest = d" class="submit-btn">View Details</button>
           <a [routerLink]="['/booking']" [queryParams]="{ destination: d.slug }" class="submit-btn">Book Now</a>
         </div>
@@ -99,13 +97,21 @@
 <!-- Destination Modal -->
 <div class="modal" *ngIf="selectedDest">
   <div class="modal-body" role="dialog" aria-modal="true">
-    <button (click)="selectedDest = null" class="submit-btn close-btn">
-      Close
-    </button>
+    <button (click)="closeDestination()" class="submit-btn close-btn">Close</button>
 
     <div class="modal-content">
       <h2>{{ selectedDest.title }}</h2>
-      <img [src]="selectedDest.img" [alt]="selectedDest.title" />
+      <div class="slider" *ngIf="selectedDest.images?.length">
+        <button (click)="prevImage()">‹</button>
+        <img 
+          [src]="selectedDest.images?.[currentImageIndex]" 
+          [alt]="selectedDest.title" 
+        />
+        <button (click)="nextImage()">›</button>
+      </div>
+      <img *ngIf="!selectedDest.images?.length && selectedDest.img" 
+           [src]="selectedDest.img" 
+           [alt]="selectedDest.title" />
       <p><strong>Location:</strong> {{ selectedDest.location }}</p>
       <p><strong>Rating:</strong> ⭐ {{ selectedDest.rating }}</p>
       <p>{{ selectedDest.desc }}</p>

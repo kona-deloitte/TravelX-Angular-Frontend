@@ -16,6 +16,7 @@ export class DestinationService {
         rating: 4.8,
         desc: 'Relax on pristine beaches with crystal clear water.',
         video: './images/bali.mp4',
+        images:['./images/p-1.jpg','./images/p-2.jpg','./images/p-3.jpg'],
         slug: 'bali-paradise',
         highlights: ['Beaches', 'Surfing', 'Temples'],
         itinerary: ['Day 1: Arrival', 'Day 2: Beach', 'Day 3: Ubud'],
