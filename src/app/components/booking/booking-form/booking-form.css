@@ -34,20 +34,7 @@
         display: none !important;
       }
 
-      /* small preview card */
-      #previewCard {
-        font-size: 0.95rem;
-      }
 
-      /* package preview styling inside previewCard */
-      .preview-title {
-        font-weight: 700;
-        margin-bottom: 6px;
-      }
-      .preview-detail {
-        color: var(--gray);
-        margin-bottom: 6px;
-      }
 
       /* small form tweaks */
       .form-group input,

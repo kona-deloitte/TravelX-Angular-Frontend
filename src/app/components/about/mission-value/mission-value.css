@@ -34,4 +34,43 @@
         color: #555;
         font-size: 20px;
       }
+      .mission-section {
+  background: var(--gradient-ocean);
+  color: var(--white);
+  border-radius: 20px;
+  margin: 0 20px;
+}
+
+.mission-section h2 {
+  text-align: center;
+  font-size: 2.5rem;
+  margin-bottom: 50px;
+}
+
+.values-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 40px;
+}
+
+.value-card {
+  text-align: center;
+}
+
+.value-icon {
+  font-size: 3rem;
+  margin-bottom: 20px;
+}
+
+.value-card h3 {
+  font-size: 1.5rem;
+  margin-bottom: 15px;
+}
+
+.value-card p {
+  opacity: 0.9;
+  line-height: 1.6;
+}
+
+
 
