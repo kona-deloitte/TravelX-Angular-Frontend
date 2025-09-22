@@ -4,3 +4,11 @@
         gap: 28px;
         align-items: start;
       }
+.form-container {
+  max-width: 700px;
+  margin: 0 auto;
+  background: var(--white);
+  padding: 40px;
+  border-radius: 15px;
+  box-shadow: var(--shadow-xl);
+}
