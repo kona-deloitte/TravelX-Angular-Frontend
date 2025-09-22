@@ -36,33 +36,81 @@
         gap: 20px;
       }
 
-      /* On tablets/mobile, stack to 1 card */
-      @media (max-width: 768px) {
+      @media (max-width: 1024px) {
         .destinations-grid {
-          grid-template-columns: 1fr;
-        }
-      }
-
-
-      @media (max-width: 1200px) {
-        .destinations-grid {
-          grid-template-columns: repeat(3, 1fr);
+          grid-template-columns: repeat(2, 1fr);
         }
         .search-wrap input {
           width: 100%;
         }
-        
+        .dest-controls {
+          gap: 14px;
+          flex-wrap: wrap;
+        }
       }
 
-      @media (max-width: 820px) {
+      @media (max-width: 768px) {
         .destinations-grid {
-          grid-template-columns: repeat(2, 1fr);
+          grid-template-columns: 1fr;
         }
         .dest-controls {
+          flex-direction: column;
+          align-items: stretch;
           gap: 12px;
+        }
+        .filter-wrap {
+          width: 100%;
+          justify-content: space-between;
+          flex-wrap: wrap;
+          gap: 8px;
+        }
+        .filter-wrap select,
+        .filter-wrap input {
+          flex: 1;
+          min-width: 48%;
         }
       }
 
+      @media (max-width: 480px) {
+        .search-wrap input {
+          width: 100%;
+          font-size: 0.95rem;
+        }
+        .filter-wrap select,
+        .filter-wrap input {
+          min-width: 100%;
+        }
+        .destination-title {
+          font-size: 1rem;
+        }
+        .destination-sub {
+          font-size: 0.8rem;
+        }
+      }
+      .book-now{
+        background: var(--gradient-hero);
+        color: #fff;
+        border: none;
+        padding: 10px 12px;
+        border-radius: 8px;
+        cursor: pointer;
+        font-weight: 700;
+      }
+      .view-details{
+        background: #fff;
+        border: 1px solid #e6eef2;
+        padding: 10px 12px;
+        border-radius: 8px;
+        cursor: pointer;
+        color: var(--primary);
+      }
+      .package-body {
+          padding: 16px;
+          flex: 1;
+          display: flex;
+          flex-direction: column;
+          gap: 8px;
+      }
       /* Card */
       .destination-card {
         background: var(--white);
@@ -295,7 +343,6 @@
 
 .actions {
   display: flex;
-  justify-content: space-between;
   margin-top: 10px;
 }
 

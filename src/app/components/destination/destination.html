@@ -74,15 +74,16 @@
           <img [src]="d.img" [alt]="d.title" />
         </ng-template>
 
-        <h3>{{ d.title }}</h3>
-        <p class="location">{{ d.location }}</p>
-        <p class="rating">⭐ {{ d.rating }}</p>
-        <p>{{ d.desc }}</p>
+        <div class ="package-body">
+          <h3>{{ d.title }}</h3>
+          <p class="location">{{ d.location }}</p>
+          <p class="rating">⭐ {{ d.rating }}</p>
+          <p>{{ d.desc }}</p>
 
-        <div class="actions">
-          
-          <button (click)="selectedDest = d" class="submit-btn">View Details</button>
-          <a [routerLink]="['/booking']" [queryParams]="{ destination: d.slug }" class="submit-btn">Book Now</a>
+          <div class="actions">
+            <a [routerLink]="['/booking']" [queryParams]="{ destination: d.slug }" class="book-now">Book Now</a>
+            <button (click)="selectedDest = d" class="view-details">View Details</button>
+          </div>
         </div>
       </div>
     </div>
