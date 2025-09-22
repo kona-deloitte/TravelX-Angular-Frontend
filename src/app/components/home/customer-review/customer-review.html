@@ -1,10 +1,24 @@
-<!-- Testimonials -->
 <section class="section testimonials-section">
   <div class="container">
     <div class="section-header">
       <h2>What Our Travelers Say</h2>
       <p>Real experiences from real adventurers who explored the world with us</p>
     </div>
-    <div class="testimonials-grid" id="testimonialsGrid"></div>
+    <div class="testimonials-grid" id="testimonialsGrid">
+      <div class="testimonial-card" *ngFor="let t of testimonials">
+        <div class="testimonial-rating">
+          {{ '★'.repeat(t.rating) }}{{ '☆'.repeat(5 - t.rating) }}
+        </div>
+        <p class="testimonial-quote">“{{ t.quote }}”</p>
+        <div class="testimonial-author">
+          <div class="author-avatar">{{ t.initials }}</div>
+          <div class="author-info">
+            <h4>{{ t.name }}</h4>
+            <p>{{ t.role }}</p>
+          </div>
+        </div>
+      </div>
+    </div>
   </div>
 </section>
+ 

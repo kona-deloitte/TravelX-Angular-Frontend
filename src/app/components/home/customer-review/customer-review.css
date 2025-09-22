@@ -1,0 +1,120 @@
+.testimonials-section {
+  margin: 0 20px 20px 20px; /* remove top margin */
+  padding: 40px 40px 60px 40px; /* reduce top padding to 40px */
+  border-radius: 20px;
+  background: #ffffff;
+}
+ 
+/* ===============================
+   Section Header (title + subtitle)
+================================= */
+.section-header {
+  text-align: center;
+  margin-bottom: 40px;
+}
+ 
+.section-header h2 {
+  font-size: 2rem;
+  margin-bottom: 10px;
+  color: #111827;
+}
+ 
+.section-header p {
+  color: #6b7280;
+}
+ 
+/* ===============================
+   Testimonials Grid
+================================= */
+.testimonials-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+  gap: 30px;
+}
+ 
+/* ===============================
+   Testimonial Card
+================================= */
+.testimonial-card {
+  background: #f8fafc;
+  padding: 30px;
+  border-radius: 15px;
+  box-shadow: 0 10px 15px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+ 
+.testimonial-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 15px 20px rgba(0, 0, 0, 0.15);
+}
+ 
+/* ===============================
+   Rating Stars
+================================= */
+.testimonial-rating {
+  margin-bottom: 15px;
+  color: #fb923c; /* orange stars */
+  font-size: 1.2rem;
+}
+ 
+/* ===============================
+   Quote Text
+================================= */
+.testimonial-quote {
+  font-style: italic;
+  margin-bottom: 20px;
+  color: #475569;
+  line-height: 1.5;
+}
+ 
+/* ===============================
+   Author Info (avatar + details)
+================================= */
+.testimonial-author {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+}
+ 
+.author-avatar {
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  background: #0891b2; /* teal avatar */
+  color: white;
+  font-weight: bold;
+  font-size: 1rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+ 
+.author-info h4 {
+  color: var(--dark);
+  margin-bottom: 3px;
+}
+ 
+.author-info p {
+  color: var(--gray);
+  font-size: 0.9rem;
+}
+ 
+/* ===============================
+   Responsive
+================================= */
+@media (max-width: 768px) {
+  .testimonials-section {
+    padding: 20px;
+    margin: 10px;
+  }
+ 
+  .section-header h2 {
+    font-size: 1.5rem;
+  }
+ 
+  .testimonials-grid {
+    grid-template-columns: 1fr;
+    gap: 20px;
+  }
+}
+ 

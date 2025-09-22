@@ -1,0 +1,91 @@
+.hero-carousel {
+  position: relative;
+  height: 450px;
+  overflow: hidden;
+  margin: 20px;
+  border-radius: 20px;
+}
+ 
+.carousel-slide {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  opacity: 0;
+  transition: opacity 1s ease-in-out;
+}
+ 
+.carousel-slide.active {
+  display: block;
+  opacity: 1;
+}
+ 
+.carousel-slide img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+ 
+.carousel-content {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  padding: 60px 40px;
+  background: linear-gradient(to top, rgba(0, 0, 0, 0.7), transparent);
+  color: white;
+}
+ 
+.carousel-btn {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  background: rgba(255, 255, 255, 0.2);
+  border: none;
+  color: white;
+  font-size: 1.5rem;
+  padding: 15px 20px;
+  border-radius: 50%;
+  cursor: pointer;
+}
+ 
+.carousel-btn.prev {
+  left: 20px;
+}
+.carousel-btn.next {
+  right: 20px;
+}
+ 
+.carousel-dots {
+  position: absolute;
+  bottom: 20px;
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  gap: 10px;
+}
+ 
+.carousel-dots span {
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.5);
+  cursor: pointer;
+}
+ 
+.carousel-dots span.active {
+  background: white;
+  width: 30px;
+  border-radius: 5px;
+}
+@media (max-width: 768px) {
+  .hero-carousel {
+    height: 300px;
+  }
+  .carousel-content {
+    padding: 30px 20px;
+  }
+  .carousel-btn {
+    font-size: 1.2rem;
+    padding: 10px 15px;
+  }
+}
