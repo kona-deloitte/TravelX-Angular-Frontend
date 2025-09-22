@@ -1,11 +1,19 @@
-import { Component } from '@angular/core';
-
+import { Component, OnInit } from '@angular/core';
+import { Data } from '../../../services/data';
+import { CommonModule } from '@angular/common';
+ 
 @Component({
   selector: 'app-popular-packages',
-  imports: [],
+  imports: [CommonModule],
   templateUrl: './popular-packages.html',
-  styleUrl: './popular-packages.css'
+  styleUrls: ['./popular-packages.css'],
 })
-export class PopularPackages {
-
+export class PopularPackages implements OnInit {
+  packages: any[] = [];
+ 
+  constructor(private dataService: Data) {}
+ 
+  ngOnInit() {
+    this.packages = this.dataService.getPackages();
+  }
 }

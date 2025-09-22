@@ -1,10 +1,31 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
+import { CommonModule } from '@angular/common';
 import { RouterLink, RouterLinkActive } from '@angular/router';
+import { Storage } from '../../services/storage';
 
 @Component({
   selector: 'app-header',
-  imports: [RouterLink, RouterLinkActive],
+  standalone: true,
+  imports: [CommonModule, RouterLink, RouterLinkActive],
   templateUrl: './header.html',
-  styleUrl: './header.css',
+  styleUrls: ['./header.css'],
 })
-export class Header {}
+export class Header implements OnInit {
+  currentUser: any = null;
+
+  constructor(private storage: Storage) {}
+
+  ngOnInit() {
+    this.currentUser = this.storage.getCurrentUser();
+    window.addEventListener('storage', () => {
+      this.currentUser = this.storage.getCurrentUser();
+    });
+  }
+
+  logout() {
+    if (confirm('Log out of TravelX?')) {
+      this.storage.logout();
+      this.currentUser = null;
+    }
+  }
+}

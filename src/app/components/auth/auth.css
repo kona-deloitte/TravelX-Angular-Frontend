@@ -1,0 +1,37 @@
+#authLink.user {
+  font-weight: 700;
+}
+.hide {
+  display: none !important;
+}
+.container-center {
+  max-width: 400px;
+  margin: 50px auto;
+  padding: 20px;
+ /* border: 1px solid #ddd;
+  border-radius: 8px;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+  background-color: #ecd9c8;*/
+}
+
+.tab-switch {
+  display: flex;
+  gap: 10px;
+  justify-content: center;
+  margin-bottom: 20px;
+}
+.tab-switch button {
+  padding: 11px 18px;
+  border: 1px solid #e2e8f0;
+  background: #fff;
+  border-radius: 10px;
+  box-shadow: #bae6fd;
+  cursor: pointer;
+}
+.tab-switch button.active {
+  background: #e0f2fe;
+  border-color: #bae6fd;
+}
+.tab-switch button:hover {
+  background: #f0f9ff;
+}
