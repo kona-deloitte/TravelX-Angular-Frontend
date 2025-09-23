@@ -7,6 +7,10 @@
    margin: 18px 0 28px;
  }
 
+ .section {
+   margin: 16px
+ }
+
  .search-wrap input {
    width: 360px;
    padding: 12px 14px;

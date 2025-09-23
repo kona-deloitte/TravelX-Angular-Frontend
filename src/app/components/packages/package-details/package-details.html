@@ -1,19 +1,9 @@
 <!-- Package Detail Modal -->
 <div id="packageModal" class="modal">
   <div class="modal-body">
-    <button
-      id="modalClose"
-      class="submit-btn"
-      style="float: right; background: #fff; color: var(--primary); border: 1px solid #e2e8f0"
-      (click)="close()"
-    >
-      Close
-    </button>
+    <button id="modalClose" class="submit-btn" (click)="close()">Close</button>
     <div id="modalContent">
-      <div
-        style="width: 100%; display: flex; gap: 18px; align-items: flex-start"
-        class="modal-grid"
-      >
+      <div class="modal-grid">
         <div class="modal-main-content">
           <img [src]="package?.img" alt="{{ package?.title }}" class="package-image" />
           <h2 class="package-title">{{ package?.title }}</h2>
@@ -42,7 +32,7 @@
             </ul>
           </div>
         </div>
-        <aside class="modal-aside">
+        <div class="modal-aside">
           <div class="aside-card">
             <div class="aside-header">
               <div>
@@ -63,7 +53,7 @@
               </div>
             </div>
           </div>
-        </aside>
+        </div>
       </div>
     </div>
   </div>

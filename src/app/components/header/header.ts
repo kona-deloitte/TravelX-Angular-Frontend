@@ -33,13 +33,4 @@ export class Header implements OnInit {
       this.currentUser = null;
     }
   }
-  isMenuOpen = false;
-
-  toggleMenu() {
-    this.isMenuOpen = !this.isMenuOpen;
-  }
-
-  closeMenu() {
-    this.isMenuOpen = false;
-  }
 }

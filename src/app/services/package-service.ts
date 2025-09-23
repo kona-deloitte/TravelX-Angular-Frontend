@@ -22,7 +22,7 @@ export class PackageService {
         nights: '7 Nights',
         rating: 4.9,
         location: 'France & Switzerland',
-        img: 'https://images.unsplash.com/photo-1502602898657-3e91760cbb34?w=1200',
+        img: './images/p-4.jpg',
       },
       {
         title: 'Tokyo Discovery',
