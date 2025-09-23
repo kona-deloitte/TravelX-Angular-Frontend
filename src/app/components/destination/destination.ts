@@ -22,7 +22,7 @@ export class Destination {
   // State
   resultsInfo: string = '';
   selectedDest: destinations | null = null;   
-  wishlist: Set<number> = new Set();
+  
 
   // Data
   dst: destinations[] = [];
@@ -37,7 +37,7 @@ export class Destination {
   }
 
   applyFilters() {
-    let results = [...this.dst];   // ✅ FIX: use dst, not destinations
+    let results = [...this.dst];   
 
     if (this.searchTerm.trim()) {
       results = results.filter(d =>
@@ -93,11 +93,49 @@ export class Destination {
       : 'No destinations match your search.';
   }
 
-  toggleWishlist(id: number) {
-    this.wishlist.has(id) ? this.wishlist.delete(id) : this.wishlist.add(id);
+  
+  currentImageIndex: number = 0;
+  private autoScrollInterval: any;
+
+  // Called when user clicks "View Details"
+  openDestination(dest: destinations) {
+    this.selectedDest = dest;
+    this.currentImageIndex = 0;
+
+    if (this.autoScrollInterval) {
+      clearInterval(this.autoScrollInterval);
+    }
+
+    // Auto scroll every 3 seconds
+    this.autoScrollInterval = setInterval(() => {
+      if (this.selectedDest?.images && this.selectedDest.images.length > 0) {
+        this.currentImageIndex = (this.currentImageIndex + 1) % this.selectedDest.images.length;
+      }
+    }, 3000);
   }
 
-  isWishlisted(id: number): boolean {
-    return this.wishlist.has(id);
+  // Called when closing modal
+  closeDestination() {
+    this.selectedDest = null;
+    this.currentImageIndex = 0;
+
+    if (this.autoScrollInterval) {
+      clearInterval(this.autoScrollInterval);
+    }
   }
+
+  nextImage() {
+    if (this.selectedDest?.images) {
+      this.currentImageIndex = (this.currentImageIndex + 1) % this.selectedDest.images.length;
+    }
+  }
+
+  prevImage() {
+    if (this.selectedDest?.images) {
+      this.currentImageIndex =
+        (this.currentImageIndex - 1 + this.selectedDest.images.length) %
+        this.selectedDest.images.length;
+    }
+  }
+
 }

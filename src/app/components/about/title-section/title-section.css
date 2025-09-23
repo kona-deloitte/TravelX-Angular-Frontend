@@ -1,3 +1,4 @@
+
 /* ===== Page Hero ===== */
 .page-hero {
   background: var(--gradient-hero);
@@ -53,12 +54,15 @@
   margin-top: 20px;
 }
 
-.stat-card {
-  background: #f8fafc;
-  padding: 20px;
-  border-radius: 12px;
-  text-align: center;
-}
+     
+
+      .about-text p {
+        color: var(--gray);
+        line-height: 1.8;
+        margin-bottom: 20px;
+        font-size: 1.125rem;
+      }
+
 
 .stat-card img {
   width: 60px;
@@ -66,17 +70,25 @@
   object-fit: cover;
   margin-bottom: 10px;
 }
+      .stats-grid {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        gap: 20px;
+        margin-top: 40px;
+      }
 
-.stat-value {
-  font-size: 1.5rem;
-  font-weight: bold;
-  color: var(--dark);
-}
+      .stat-card {
+        background: #f8fafc;
+        padding: 20px;
+        border-radius: 12px;
+        text-align: center;
+      }
 
-.stat-label {
-  color: var(--gray);
-  font-size: 0.9rem;
-}
+      .stat-icon {
+        font-size: 2rem;
+        margin-bottom: 10px;
+      }
+
 
 /* ===== Media Queries ===== */
 @media (max-width: 768px) {
@@ -104,3 +116,15 @@
     grid-template-columns: 1fr;
   }
 }
+
+      .stat-value {
+        font-size: 1.5rem;
+        font-weight: bold;
+        color: var(--dark);
+      }
+
+      .stat-label {
+        color: var(--gray);
+        font-size: 0.9rem;
+      }
+

@@ -46,24 +46,19 @@ specialRequests: ['']
 });
 
 }
-formMessage: string = ''; // Add this at the top of your component
+formMessage: string = '';
 
 onSubmit() {
   if (this.bookingForm.valid) {
-    // Form is valid → show success message
     this.formMessage = 'Thanks for booking! Your details have been submitted.';
     console.log(this.bookingForm.value);
 
-    // Optionally, reset the form after submission
-    // this.bookingForm.reset();
   } else {
-    // Form invalid → mark all controls as touched to show errors
     this.formMessage = 'Please fix the errors before submitting.';
     this.markAllFieldsAsTouched(this.bookingForm);
   }
 }
 
-// Helper function to mark all fields as touched
 markAllFieldsAsTouched(formGroup: FormGroup) {
   Object.keys(formGroup.controls).forEach(field => {
     const control = formGroup.get(field);
@@ -75,8 +70,6 @@ markAllFieldsAsTouched(formGroup: FormGroup) {
   });
 }
 
-
-
 onReset(){
   this.bookingForm.reset();
 }
@@ -86,8 +79,6 @@ decrementPeople() {
     this.bookingForm.get('numberOfPeople')?.setValue(currentValue - 1);
   }
 }
-
-// Increment number of people
 incrementPeople() {
   const currentValue = this.bookingForm.get('numberOfPeople')?.value || 1;
   this.bookingForm.get('numberOfPeople')?.setValue(currentValue + 1);

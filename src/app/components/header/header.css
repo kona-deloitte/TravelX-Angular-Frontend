@@ -16,7 +16,6 @@ header {
   height: 80px;
 }
 
-/* ---------- LOGO ---------- */
 .logo {
   display: flex;
   align-items: center;
@@ -25,9 +24,6 @@ header {
   font-size: 28px;
   font-weight: 700;
   letter-spacing: 2px;
-  background: linear-gradient(90deg, #ff9d42, #ff5e62);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
   position: relative;
   cursor: pointer;
   transition: all 0.4s ease-in-out;
@@ -40,9 +36,9 @@ header {
   margin-left: 30px;
 }
 
-/* Airplane effect */
+
 .logo::after {
-  content: '✈️';
+
   position: absolute;
   right: -35px;
   top: 50%;
@@ -61,12 +57,23 @@ header {
   transform: translateY(-50%) rotate(360deg);
 }
 
-/* ---------- NAV LINKS ---------- */
+
+@keyframes float {
+
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+
+  50% {
+    transform: translateY(-5px);
+  }
+}
+
 .nav-menu {
   display: flex;
   gap: 30px;
-  justify-content: flex-end;
-  margin-right: 20px;
+  padding-right: 20px;
 }
 
 .nav-link {
@@ -93,59 +100,38 @@ header {
   border-radius: 20px;
 }
 
-/* ---------- HAMBURGER ---------- */
-.mobile-menu-btn {
-  display: none;
-  flex-direction: column;
-  background: none;
-  border: none;
-  cursor: pointer;
-  padding: 5px;
-  margin-right: 20px;
+
+
+button {
+  border: 0;
+  background: #fff;
 }
 
-.mobile-menu-btn span {
-  width: 25px;
-  height: 3px;
-  background: var(--dark);
-  margin: 3px 0;
-  transition: 0.3s;
+#closeButton {
+  font-size: x-large;
+  color: black;
 }
 
-/* ---------- RESPONSIVE ---------- */
-@media (max-width: 768px) {
+#closeButton:hover {
+  color: #ff6600;
+}
+
+@media(max-width:680px) {
+  #closeButton {
+    display: block;
+    position: relative;
+    right: 30px;
+
+  }
+
   .nav-menu {
+    gap: 10px;
+  }
+}
+
+@media(min-width:680px) {
+  #closeButton {
     display: none;
-    flex-direction: column;
-    gap: 15px;
-    background: white;
-    position: absolute;
-    top: 80px; /* below header */
-    left: 0;
-    right: 0;
-    padding: 20px;
-    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
-    border-radius: 0 0 10px 10px;
   }
 
-  .nav-menu.open {
-    display: flex; /* show when hamburger clicked */
-  }
-
-  .mobile-menu-btn {
-    display: flex;
-    flex-direction: column;
-    background: none;
-    border: none;
-    cursor: pointer;
-    margin-right: 20px;
-  }
-
-  .mobile-menu-btn span {
-    width: 25px;
-    height: 3px;
-    background: var(--dark);
-    margin: 4px 0;
-    transition: 0.3s;
-  }
 }

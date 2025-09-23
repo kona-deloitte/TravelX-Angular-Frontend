@@ -74,17 +74,16 @@
           <img [src]="d.img" [alt]="d.title" />
         </ng-template>
 
-        <h3>{{ d.title }}</h3>
-        <p class="location">{{ d.location }}</p>
-        <p class="rating">⭐ {{ d.rating }}</p>
-        <p>{{ d.desc }}</p>
+        <div class ="package-body">
+          <h3>{{ d.title }}</h3>
+          <p class="location">{{ d.location }}</p>
+          <p class="rating">⭐ {{ d.rating }}</p>
+          <p>{{ d.desc }}</p>
 
-        <div class="actions">
-          <button (click)="toggleWishlist(d.id)">
-            {{ isWishlisted(d.id) ? '♥ Remove' : '♡ Wishlist' }}
-          </button>
-          <button (click)="selectedDest = d" class="submit-btn">View Details</button>
-          <a [routerLink]="['/booking']" [queryParams]="{ destination: d.slug }" class="submit-btn">Book Now</a>
+          <div class="actions">
+            <a [routerLink]="['/booking']" [queryParams]="{ destination: d.slug }" class="book-now">Book Now</a>
+            <button (click)="selectedDest = d" class="view-details">View Details</button>
+          </div>
         </div>
       </div>
     </div>
@@ -99,32 +98,39 @@
 <!-- Destination Modal -->
 <div class="modal" *ngIf="selectedDest">
   <div class="modal-body" role="dialog" aria-modal="true">
-    <button (click)="selectedDest = null" class="submit-btn close-btn">
-      Close
-    </button>
+    <button (click)="closeDestination()" class="submit-btn close-btn">Close</button>
 
     <div class="modal-content">
       <h2>{{ selectedDest.title }}</h2>
-      <img [src]="selectedDest.img" [alt]="selectedDest.title" />
+      <div class="slider" *ngIf="selectedDest.images?.length">
+        <button (click)="prevImage()">‹</button>
+        <img 
+          [src]="selectedDest.images?.[currentImageIndex]" 
+          [alt]="selectedDest.title" 
+        />
+        <button (click)="nextImage()">›</button>
+      </div>
+      <img *ngIf="!selectedDest.images?.length && selectedDest.img" 
+           [src]="selectedDest.img" 
+           [alt]="selectedDest.title" />
       <p><strong>Location:</strong> {{ selectedDest.location }}</p>
       <p><strong>Rating:</strong> ⭐ {{ selectedDest.rating }}</p>
       <p>{{ selectedDest.desc }}</p>
 
-      <div *ngIf="selectedDest.highlights?.length">
+      <div *ngIf="selectedDest.highlights?.length" class="highlights">
         <h3>Highlights</h3>
         <ul>
           <li *ngFor="let h of selectedDest.highlights">{{ h }}</li>
         </ul>
       </div>
 
-      <div *ngIf="selectedDest.itinerary?.length">
+      <div *ngIf="selectedDest.itinerary?.length" class="itinerary">
         <h3>Itinerary</h3>
         <ul>
           <li *ngFor="let i of selectedDest.itinerary">{{ i }}</li>
         </ul>
       </div>
 
-      <a *ngIf="selectedDest.mapUrl" [href]="selectedDest.mapUrl" target="_blank">View on Map</a>
     </div>
   </div>
 </div>

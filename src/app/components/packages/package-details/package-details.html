@@ -14,14 +14,10 @@
         style="width: 100%; display: flex; gap: 18px; align-items: flex-start"
         class="modal-grid"
       >
-        <div style="width: 90%; margin-left: 5%; margin-right: 5%">
-          <img
-            [src]="package?.img"
-            alt="{{ package?.title }}"
-            style="width: 100%; height: 320px; object-fit: cover; border-radius: 8px"
-          />
-          <h2 style="margin-top: 12px">{{ package?.title }}</h2>
-          <div style="color: var(--gray); margin-bottom: 8px">
+        <div class="modal-main-content">
+          <img [src]="package?.img" alt="{{ package?.title }}" class="package-image" />
+          <h2 class="package-title">{{ package?.title }}</h2>
+          <div class="package-location">
             {{ package?.location }} • <span class="rating">★ {{ package?.rating }}</span>
           </div>
           <p>
@@ -30,46 +26,39 @@
           </p>
           <div class="itinerary">
             <strong>Sample itinerary:</strong>
-            <ol style="margin: 8px 0 0 18px">
+            <ol class="itinerary-list">
               <li>Arrival & transfer — welcome meeting</li>
               <li>City highlights & guided tour</li>
               <li>Leisure day / optional experience</li>
               <li>Departure after breakfast</li>
             </ol>
           </div>
-          <div style="margin-top: 12px; place-self: center">
+          <div class="whats-included">
             <strong>What's included</strong>
-            <ul style="color: var(--gray); margin-top: 8px">
+            <ul class="whats-included-list">
               <li>Accommodation as per package</li>
               <li>Daily breakfast & selected meals</li>
               <li>Transfers & local guided tours</li>
             </ul>
           </div>
         </div>
-        <aside style="min-width: 260px">
-          <div
-            style="
-              background: var(--white);
-              padding: 12px;
-              border-radius: 10px;
-              box-shadow: var(--shadow-md);
-            "
-          >
-            <div style="display: flex; justify-content: space-between; align-items: center">
+        <aside class="modal-aside">
+          <div class="aside-card">
+            <div class="aside-header">
               <div>
                 <strong>{{ package?.price }}</strong>
               </div>
               <div class="small">{{ package?.nights }}</div>
             </div>
-            <div style="margin-top: 10px">
+            <div class="aside-book-btn">
               <button id="modalBook" class="book-now" style="width: 100%" routerLink="/booking">
                 Book This Package
               </button>
             </div>
 
-            <div style="margin-top: 14px; color: var(--gray); font-size: 0.95rem">
+            <div class="cancellation-support">
               <div><strong>Cancellation:</strong> Free up to 14 days (selected packages)</div>
-              <div style="margin-top: 8px">
+              <div class="support-info">
                 <strong>Support:</strong> 24/7 helpline +91 98765 43210
               </div>
             </div>

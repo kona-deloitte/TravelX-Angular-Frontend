@@ -34,6 +34,7 @@ body {
 }
 
 /* Hero Carousel */
+/* Hero Carousel */
 .hero-carousel {
   margin-top: 80px;
   position: relative;
@@ -398,7 +399,7 @@ body {
   color: var(--white);
   padding: 120px 0 60px;
   text-align: center;
-  margin-top: 80px;
+
 }
 
 .page-hero h1 {
