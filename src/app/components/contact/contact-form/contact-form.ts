@@ -1,42 +1,42 @@
 import { CommonModule } from '@angular/common';
 import { Component } from '@angular/core';
-import { FormsModule,NgForm } from '@angular/forms';
+import { FormsModule, NgForm } from '@angular/forms';
 
 @Component({
   selector: 'app-contact-form',
   imports: [CommonModule, FormsModule],
   templateUrl: './contact-form.html',
-  styleUrl: './contact-form.css'
+  styleUrl: './contact-form.css',
 })
 export class ContactForm {
- contact = {
+  contact = {
     cname: '',
     cemail: '',
     cphone: '',
     subject: '',
     message: '',
     preferredContact: 'Email',
-    attach: null as File | null
+    attach: null as File | null,
   };
-    submitted = false;
+  submitted = false;
   successMsg = '';
-  ngOnInit():void{}
-onSubmit(form: NgForm) {
+  ngOnInit(): void {}
+  onSubmit(form: NgForm) {
     this.submitted = true;
 
     if (form.valid) {
-    alert("✅ Your message has been successfully submitted! We will get back to you ASAP.");
-    console.log("Form Data:", this.contact);
+      alert(' Your message has been successfully submitted! We will get back to you ASAP.');
+      console.log('Form Data:', this.contact);
 
-    form.resetForm({
-      preferredContact: 'Email'
-    });
-  } else {
-    Object.values(form.controls).forEach(control => {
-      control.markAsTouched();
-    });
-    alert("❌ Please correct the highlighted errors before submitting.");
-  }
+      form.resetForm({
+        preferredContact: 'Email',
+      });
+    } else {
+      Object.values(form.controls).forEach((control) => {
+        control.markAsTouched();
+      });
+      alert(' Please correct the highlighted errors before submitting.');
+    }
   }
 
   onFileChange(event: any) {

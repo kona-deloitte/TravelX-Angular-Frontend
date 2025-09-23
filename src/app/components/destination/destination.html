@@ -11,7 +11,6 @@
 <!-- Main Section -->
 <main class="section">
   <div class="container">
-
     <!-- Controls -->
     <div class="controls dest-controls">
       <div class="search-wrap">
@@ -19,7 +18,8 @@
           type="text"
           placeholder="Search destinations (e.g. Bali, Santorini)..."
           [(ngModel)]="searchTerm"
-          (input)="applyFilters()" />
+          (input)="applyFilters()"
+        />
       </div>
 
       <div class="filter-wrap">
@@ -35,7 +35,6 @@
             {{ country }}
           </option>
         </select>
-
 
         <select [(ngModel)]="minRating" (change)="applyFilters()" title="Filter by Rating">
           <option value="">Min rating</option>
@@ -60,28 +59,30 @@
     <!-- Grid -->
     <div class="destinations-grid">
       <div *ngFor="let d of filteredDestinations" class="destination-card">
-        <video 
+        <video
           *ngIf="d.video; else showImage"
-          [src]="d.video" 
-          autoplay 
-          muted 
-          loop 
+          [src]="d.video"
+          autoplay
+          muted
+          loop
           playsinline
-          class="media-video">
-        </video>
+          class="media-video"
+        ></video>
 
         <ng-template #showImage>
           <img [src]="d.img" [alt]="d.title" />
         </ng-template>
 
-        <div class ="package-body">
+        <div class="package-body">
           <h3>{{ d.title }}</h3>
           <p class="location">{{ d.location }}</p>
-          <p class="rating">⭐ {{ d.rating }}</p>
+          <p class="rating"><mat-icon>star</mat-icon> {{ d.rating }}</p>
           <p>{{ d.desc }}</p>
 
           <div class="actions">
-            <a [routerLink]="['/booking']" [queryParams]="{ destination: d.slug }" class="book-now">Book Now</a>
+            <a [routerLink]="['/booking']" [queryParams]="{ destination: d.slug }" class="book-now"
+              >Book Now</a
+            >
             <button (click)="selectedDest = d" class="view-details">View Details</button>
           </div>
         </div>
@@ -104,17 +105,16 @@
       <h2>{{ selectedDest.title }}</h2>
       <div class="slider" *ngIf="selectedDest.images?.length">
         <button (click)="prevImage()">‹</button>
-        <img 
-          [src]="selectedDest.images?.[currentImageIndex]" 
-          [alt]="selectedDest.title" 
-        />
+        <img [src]="selectedDest.images?.[currentImageIndex]" [alt]="selectedDest.title" />
         <button (click)="nextImage()">›</button>
       </div>
-      <img *ngIf="!selectedDest.images?.length && selectedDest.img" 
-           [src]="selectedDest.img" 
-           [alt]="selectedDest.title" />
+      <img
+        *ngIf="!selectedDest.images?.length && selectedDest.img"
+        [src]="selectedDest.img"
+        [alt]="selectedDest.title"
+      />
       <p><strong>Location:</strong> {{ selectedDest.location }}</p>
-      <p><strong>Rating:</strong> ⭐ {{ selectedDest.rating }}</p>
+      <p><strong>Rating:</strong> <mat-icon>star</mat-icon> {{ selectedDest.rating }}</p>
       <p>{{ selectedDest.desc }}</p>
 
       <div *ngIf="selectedDest.highlights?.length" class="highlights">
@@ -130,7 +130,6 @@
           <li *ngFor="let i of selectedDest.itinerary">{{ i }}</li>
         </ul>
       </div>
-
     </div>
   </div>
 </div>

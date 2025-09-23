@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
- 
+
 @Injectable({
   providedIn: 'root',
 })
@@ -8,11 +8,11 @@ export class AuthService {
     users: 'wlx_users',
     current: 'wlx_current_user',
   };
- 
+
   getCurrentUser() {
     return JSON.parse(localStorage.getItem(this.LS.current) || 'null');
   }
- 
+
   signup(user: { name: string; email: string; password: string }): boolean {
     const users = JSON.parse(localStorage.getItem(this.LS.users) || '[]');
     if (users.some((u: any) => u.email === user.email)) return false;
@@ -21,7 +21,7 @@ export class AuthService {
     localStorage.setItem(this.LS.current, JSON.stringify(user));
     return true;
   }
- 
+
   login(email: string, password: string): boolean {
     const users = JSON.parse(localStorage.getItem(this.LS.users) || '[]');
     const user = users.find((u: any) => u.email === email && u.ph === password);
@@ -31,7 +31,7 @@ export class AuthService {
     }
     return false;
   }
- 
+
   logout() {
     localStorage.removeItem(this.LS.current);
   }
