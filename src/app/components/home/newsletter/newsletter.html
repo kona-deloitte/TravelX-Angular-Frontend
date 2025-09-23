@@ -3,20 +3,30 @@
     <div class="newsletter-box">
       <h2>Subscribe to Our Newsletter</h2>
       <p>Get exclusive travel deals and destination updates delivered to your inbox</p>
-      <form (ngSubmit)="subscribe($event)">
-<input
-    type="email"
-    [(ngModel)]="email"
-    name="email"
-    placeholder="Enter your email"
-    required
-  />
-<button type="submit">Subscribe</button>
-</form>
- 
-<div *ngIf="message" class="form-message" [class.success]="success">
-  {{ message }}
-</div>
+      <form #newsletterForm="ngForm" (ngSubmit)="subscribe(newsletterForm)">
+        <input
+          type="email"
+          [(ngModel)]="email"
+          name="email"
+          placeholder="Enter your email"
+          required
+          email
+          #emailField="ngModel"
+        />
+
+        <button type="submit" [disabled]="newsletterForm.invalid">Subscribe</button>
+        <!-- Validation Errors -->
+      </form>
+      <div *ngIf="emailField.invalid && emailField.touched" class="error">
+        <small *ngIf="emailField.errors?.['required']">Email is required</small>
+        <small *ngIf="emailField.errors?.['email']">Invalid email format</small>
+      </div>
+
+      <!-- Success / Error Message -->
+
+      <div *ngIf="message" class="form-message" [class.success]="success">
+        {{ message }}
+      </div>
     </div>
   </div>
 </section>

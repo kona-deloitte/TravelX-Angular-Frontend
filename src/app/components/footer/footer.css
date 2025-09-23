@@ -22,13 +22,11 @@
   line-height: 1.8;
   opacity: 0.9;
   margin-bottom: 20px;
-  
 }
 
 .footer-column-center {
   margin-left: 30%;
 }
-
 
 .social-links {
   display: flex;
@@ -69,12 +67,22 @@
 .footer-nav button:hover {
   opacity: 1;
   transform: translateX(5px);
-
 }
 
 .contact-info p {
   margin-bottom: 10px;
   opacity: 0.9;
+}
+
+.contact-link {
+  text-decoration: none;
+  color: #fff;
+  font-weight: 400;
+}
+
+.contact-link:hover {
+  text-decoration: none;
+  color: #fff;
 }
 
 .footer-bottom {
@@ -88,12 +96,12 @@
     grid-template-columns: 1fr;
     gap: 30px;
   }
- 
+
   .footer {
     padding: 40px 20px 20px; /* same horizontal padding as other sections */
   }
 }
- 
+
 .social-links {
   margin-top: 0.5rem;
   display: flex;
@@ -125,15 +133,14 @@
   .social-links a {
     padding: 8px;
   }
-  
+
   .social-links a img {
     width: 20px;
     height: 20px;
   }
 }
 
- button{
-    border: 0;
-    background: #fff;
+button {
+  border: 0;
+  background: #fff;
 }
- 

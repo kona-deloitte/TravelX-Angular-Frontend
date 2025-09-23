@@ -6,19 +6,71 @@
         <img src="https://img.icons8.com/?size=100&id=pwpz1tqVnCQy&format=png&color=000000" />
         TravelX
       </div>
-     <nav class="nav-menu">
-  <button class="nav-link" routerLink="" routerLinkActive="active" [routerLinkActiveOptions]="{exact:true}">Home</button>
-  <button class="nav-link" routerLink="about" routerLinkActive="active">About</button>
-  <button class="nav-link" routerLink="packages" routerLinkActive="active">Packages</button>
-  <button class="nav-link" routerLink="destinations" routerLinkActive="active">Destinations</button>
-  <button class="nav-link" routerLink="booking" routerLinkActive="active">Booking</button>
-  <button class="nav-link" routerLink="contact" routerLinkActive="active">Contact</button>
+      <button class="mobile-menu-btn" (click)="toggleMenu()">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+      <nav class="nav-menu" [class.open]="isMenuOpen">
+        <button
+          class="nav-link"
+          routerLink=""
+          routerLinkActive="active"
+          [routerLinkActiveOptions]="{ exact: true }"
+          (click)="closeMenu()"
+        >
+          Home
+        </button>
+        <button class="nav-link" routerLink="about" routerLinkActive="active" (click)="closeMenu()">
+          About
+        </button>
+        <button
+          class="nav-link"
+          routerLink="packages"
+          routerLinkActive="active"
+          (click)="closeMenu()"
+        >
+          Packages
+        </button>
+        <button
+          class="nav-link"
+          routerLink="destinations"
+          routerLinkActive="active"
+          (click)="closeMenu()"
+        >
+          Destinations
+        </button>
+        <button
+          class="nav-link"
+          routerLink="booking"
+          routerLinkActive="active"
+          (click)="closeMenu()"
+        >
+          Booking
+        </button>
+        <button
+          class="nav-link"
+          routerLink="contact"
+          routerLinkActive="active"
+          (click)="closeMenu()"
+        >
+          Contact
+        </button>
 
-  <!-- Login or Hi username -->
-  <button *ngIf="!currentUser" class="nav-link" routerLink="auth" routerLinkActive="active">Login</button>
-  <button *ngIf="currentUser" class="nav-link" (click)="logout()">Hi {{ currentUser.fullName }}</button>
-</nav>
-
+        <!-- Login or Hi username -->
+        <button
+          *ngIf="!currentUser"
+          class="nav-link"
+          routerLink="auth"
+          routerLinkActive="active"
+          (click)="closeMenu()"
+        >
+          Login
+        </button>
+        <button *ngIf="currentUser" class="nav-link" (click)="logout()">
+          Hi {{ currentUser.fullName }}
+        </button>
+      </nav>
     </div>
   </div>
 </header>

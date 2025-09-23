@@ -8,38 +8,39 @@ header {
   box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
   z-index: 1000;
 }
- 
+
 .nav-wrapper {
   display: flex;
   justify-content: space-between;
   align-items: center;
   height: 80px;
 }
+
+/* ---------- LOGO ---------- */
 .logo {
   display: flex;
-  align-items: center; /* keeps text & image aligned */
-  gap: 10px; /* space between image & text */
+  align-items: center;
+  gap: 10px;
   font-family: 'Poppins', sans-serif;
   font-size: 28px;
   font-weight: 700;
   letter-spacing: 2px;
   background: linear-gradient(90deg, #ff9d42, #ff5e62);
- 
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   position: relative;
   cursor: pointer;
   transition: all 0.4s ease-in-out;
 }
- 
+
 .logo img {
-  height: 55px; /* match font-size (28px) */
+  height: 55px;
   width: auto;
   object-fit: contain;
   margin-left: 30px;
 }
- 
-/* Glow + airplane effect */
+
+/* Airplane effect */
 .logo::after {
   content: '✈️';
   position: absolute;
@@ -50,29 +51,21 @@ header {
   opacity: 0.8;
   transition: transform 0.3s ease-in-out;
 }
- 
+
 .logo:hover {
   transform: scale(1.1);
   letter-spacing: 3px;
 }
- 
+
 .logo:hover::after {
   transform: translateY(-50%) rotate(360deg);
 }
- 
-@keyframes float {
-  0%,
-  100% {
-    transform: translateY(0);
-  }
-  50% {
-    transform: translateY(-5px);
-  }
-}
- 
+
+/* ---------- NAV LINKS ---------- */
 .nav-menu {
   display: flex;
   gap: 30px;
+  justify-content: flex-end;
   margin-right: 20px;
 }
 
@@ -84,6 +77,9 @@ header {
   transition: all 0.3s ease;
   position: relative;
   padding-bottom: 5px;
+  background: none;
+  border: none;
+  cursor: pointer;
 }
 
 .nav-link:hover {
@@ -97,7 +93,7 @@ header {
   border-radius: 20px;
 }
 
- 
+/* ---------- HAMBURGER ---------- */
 .mobile-menu-btn {
   display: none;
   flex-direction: column;
@@ -105,8 +101,9 @@ header {
   border: none;
   cursor: pointer;
   padding: 5px;
+  margin-right: 20px;
 }
- 
+
 .mobile-menu-btn span {
   width: 25px;
   height: 3px;
@@ -114,7 +111,41 @@ header {
   margin: 3px 0;
   transition: 0.3s;
 }
- button{
-    border: 0;
-    background: #fff;
+
+/* ---------- RESPONSIVE ---------- */
+@media (max-width: 768px) {
+  .nav-menu {
+    display: none;
+    flex-direction: column;
+    gap: 15px;
+    background: white;
+    position: absolute;
+    top: 80px; /* below header */
+    left: 0;
+    right: 0;
+    padding: 20px;
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+    border-radius: 0 0 10px 10px;
+  }
+
+  .nav-menu.open {
+    display: flex; /* show when hamburger clicked */
+  }
+
+  .mobile-menu-btn {
+    display: flex;
+    flex-direction: column;
+    background: none;
+    border: none;
+    cursor: pointer;
+    margin-right: 20px;
+  }
+
+  .mobile-menu-btn span {
+    width: 25px;
+    height: 3px;
+    background: var(--dark);
+    margin: 4px 0;
+    transition: 0.3s;
+  }
 }
