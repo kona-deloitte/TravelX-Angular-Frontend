@@ -12,6 +12,7 @@ import { Storage } from '../../services/storage';
 })
 export class Header implements OnInit {
   currentUser: any = null;
+  navCoplapsed = false;
 
   constructor(private storage: Storage) {}
 
@@ -20,6 +21,10 @@ export class Header implements OnInit {
     window.addEventListener('storage', () => {
       this.currentUser = this.storage.getCurrentUser();
     });
+  }
+
+  toggleMenu() {
+    this.navCoplapsed = !this.navCoplapsed;
   }
 
   logout() {

@@ -23,6 +23,7 @@
         background: rgba(2, 6, 23, 0.45);
         z-index: 1200;
       }
+
       .modal-body {
         background: var(--white);
         padding: 24px;
@@ -30,6 +31,7 @@
         width: min(520px, 94%);
         box-shadow: var(--shadow-xl);
       }
+
       .modal.hide {
         display: none !important;
       }
@@ -41,10 +43,4 @@
       .form-group select,
       .form-group textarea {
         border-radius: 8px;
-      }
-
-      @media (max-width: 480px) {
-        .page-hero {
-          padding: 80px 12px 40px;
-        }
       }

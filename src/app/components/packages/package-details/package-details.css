@@ -25,6 +25,7 @@
 }
 
 .modal {
+    width: 100%;
     position: fixed;
     inset: 0;
     display: flex;
@@ -32,6 +33,7 @@
     justify-content: center;
     background: rgba(2, 6, 23, 0.45);
     z-index: 1200;
+
 }
 
 .modal-body {
@@ -91,4 +93,93 @@
 .small {
     font-size: 0.9rem;
     color: var(--gray);
+}
+
+#modalClose {
+    float: right;
+    background: #fff;
+    color: var(--primary);
+    border: 1px solid #e2e8f0;
+}
+
+.modal-grid {
+    width: 100%;
+    display: flex;
+    gap: 18px;
+    align-items: flex-start;
+}
+
+.modal-main-content {
+    width: 90%;
+    margin-left: 5%;
+    margin-right: 5%;
+    max-width: fit-content;
+    overflow: hidden;
+}
+
+.package-img {
+    width: 100%;
+    max-width: 100%;
+    height: 320px;
+    object-fit: cover;
+    border-radius: 8px;
+    display: block;
+}
+
+.package-title {
+    margin-top: 12px;
+}
+
+.package-location {
+    color: var(--gray);
+    margin-bottom: 8px;
+}
+
+.itinerary-list {
+    margin: 8px 0 0 18px;
+}
+
+.whats-included {
+    margin-top: 12px;
+    place-self: center;
+}
+
+.whats-included-list {
+    color: var(--gray);
+    margin-top: 8px;
+}
+
+.modal-aside {
+    min-width: 260px;
+}
+
+.aside-card {
+    background: var(--white);
+    padding: 12px;
+    border-radius: 10px;
+    box-shadow: var(--shadow-md);
+}
+
+.aside-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.aside-nights {
+    font-size: 0.95rem;
+}
+
+#modalBook {
+    width: 100%;
+}
+
+.cancellation-support {
+    margin-top: 14px;
+    color: var(--gray);
+    font-size: 0.95rem;
+}
+
+.cancellation-support .support-info {
+    margin-top: 8px;
 }
