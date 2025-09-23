@@ -1,3 +1,6 @@
+/* ===============================
+   Newsletter Section
+================================= */
 .newsletter-section {
   background: #fff3e6; /* soft background */
   border-radius: 20px;
@@ -6,28 +9,29 @@
   text-align: center;
   box-shadow: 0 10px 15px rgba(0, 0, 0, 0.08);
 }
- 
+
 .newsletter-box {
   text-align: center;
   color: #1e293b;
 }
- 
-/* ===============================
-   Newsletter Box
-================================= */
+
+/* Heading */
 .newsletter-box h2 {
   font-size: 2.5rem;
   margin-bottom: 15px;
   color: #1e293b;
+  background: #1e293b;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
 }
- 
+
 .newsletter-box p {
-  font-size: 1.125rem;
+  font-size: 1rem;
   margin-bottom: 30px;
   opacity: 0.9;
   color: #1e293b;
 }
- 
+
 /* ===============================
    Form (input + button)
 ================================= */
@@ -38,23 +42,46 @@
   flex-wrap: wrap;
   gap: 15px;
 }
- 
-.newsletter-box input {
-  padding: 15px 20px;
-  border-radius: 8px;
+
+/* Input Field */
+.newsletter-box input[type='email'] {
+  padding: 12px 15px;
+  font-size: 16px;
+  border-radius: 10px;
   border: 1px solid #ccc;
+  outline: none;
   width: 300px;
   max-width: 100%;
-  font-size: 1rem;
-  transition: border-color 0.3s ease;
+  transition: border-color 0.3s ease, box-shadow 0.3s ease;
 }
- 
-.newsletter-box input:focus {
-  outline: none;
-  border-color: #0891b2;
-  box-shadow: 0 0 0 2px rgba(8, 145, 178, 0.2);
+
+.newsletter-box input[type='email']:focus {
+  border-color: #ff6600;
+  box-shadow: 0 0 5px rgba(255, 102, 0, 0.5);
 }
- 
+
+/* Invalid Input Shake Animation */
+input.ng-invalid.ng-touched {
+  border-color: red;
+  animation: shake 0.3s;
+}
+
+@keyframes shake {
+  0%,
+  100% {
+    transform: translateX(0);
+  }
+  20%,
+  60% {
+    transform: translateX(-5px);
+  }
+  40%,
+  80% {
+    transform: translateX(5px);
+  }
+}
+
+/* Submit Button */
 .newsletter-box button {
   padding: 15px 25px;
   background: #0891b2;
@@ -63,30 +90,43 @@
   border-radius: 8px;
   cursor: pointer;
   font-size: 1rem;
+  font-weight: 600;
   transition: background 0.3s ease, transform 0.2s ease;
 }
- 
+
 .newsletter-box button:hover {
   background: #0e7490;
   transform: translateY(-2px);
 }
- 
+
+.newsletter-box button:active {
+  transform: translateY(0);
+  background: #0c4a6e;
+}
+
+button[disabled] {
+  background: #ccc;
+  cursor: not-allowed;
+}
+
 /* ===============================
-   Form Message
+   Form Messages
 ================================= */
 .form-message {
   margin-top: 20px;
   font-size: 0.95rem;
   font-weight: 500;
+  text-align: center;
 }
- 
+
 .form-message.success {
   color: #16a34a;
 }
 
-.form-message.error {
+.error {
   color: #dc2626;
 }
+
 /* ===============================
    Responsive
 ================================= */
@@ -95,22 +135,19 @@
     padding: 40px 20px;
     margin: 10px;
   }
- 
+
   .newsletter-box h2 {
-    font-size: 1.5rem;
+    font-size: 1.8rem;
   }
- 
+
   .newsletter-box form {
     flex-direction: column;
     gap: 15px;
+    align-items: center;
   }
- 
-  .newsletter-box input {
-    width: 100%;
-  }
- 
+
+  .newsletter-box input,
   .newsletter-box button {
     width: 100%;
   }
 }
- 

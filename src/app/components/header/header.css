@@ -36,6 +36,7 @@ header {
   margin-left: 30px;
 }
 
+
 .logo::after {
 
   position: absolute;
@@ -55,6 +56,7 @@ header {
 .logo:hover::after {
   transform: translateY(-50%) rotate(360deg);
 }
+
 
 @keyframes float {
 
@@ -82,6 +84,9 @@ header {
   transition: all 0.3s ease;
   position: relative;
   padding-bottom: 5px;
+  background: none;
+  border: none;
+  cursor: pointer;
 }
 
 .nav-link:hover {
@@ -94,6 +99,8 @@ header {
   color: white;
   border-radius: 20px;
 }
+
+
 
 button {
   border: 0;
@@ -126,6 +133,5 @@ button {
   #closeButton {
     display: none;
   }
-
 
 }

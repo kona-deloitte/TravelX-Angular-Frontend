@@ -6,6 +6,7 @@
         <img src="https://img.icons8.com/?size=100&id=pwpz1tqVnCQy&format=png&color=000000" />
         TravelX
       </div>
+
       <button id="closeButton" (click)="toggleMenu()">@if(!navCoplapsed){X}@else{=}</button>
       @if(!navCoplapsed){
       <nav class="nav-menu">
@@ -14,6 +15,7 @@
           routerLink=""
           routerLinkActive="active"
           [routerLinkActiveOptions]="{ exact: true }"
+
         >
           Home
         </button>
@@ -33,6 +35,7 @@
           Hi {{ currentUser.fullName }}
         </button>
       </nav>
+
       }
     </div>
   </div>

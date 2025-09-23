@@ -8,7 +8,7 @@
   max-width: 400px;
   margin: 50px auto;
   padding: 20px;
- /* border: 1px solid #ddd;
+  /* border: 1px solid #ddd;
   border-radius: 8px;
   box-shadow: 0 2px 8px rgba(0,0,0,0.1);
   background-color: #ecd9c8;*/
@@ -34,4 +34,11 @@
 }
 .tab-switch button:hover {
   background: #f0f9ff;
+}
+
+.error {
+  color: #dc2626;
+  margin-bottom: 15px;
+  text-align: center;
+  font-weight: 600;
 }

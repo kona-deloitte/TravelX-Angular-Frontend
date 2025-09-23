@@ -1,67 +1,60 @@
-      /* ===== About Section ===== */
-      .about-grid {
-        display: flex;
-        gap: 2rem;
-        align-items: flex-start;
-        margin: 1.5rem 0 3rem 0;
-      }
 
-      .about-images img {
-        width: 100%;
-        border-radius: 12px;
-        object-fit: cover;
-        margin-left: 20px;
-        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
-      }
+/* ===== Page Hero ===== */
+.page-hero {
+  background: var(--gradient-hero);
+  color: var(--white);
+  padding: 120px 20px 60px;
+  text-align: center;
+  margin-top: 80px;
+}
 
-      .about-text {
-        flex: 2;
-        margin-left: 20px;
-      }
+.page-hero h1 {
+  font-size: 3rem;
+  margin-bottom: 10px;
+}
 
-      /* ===== Stats Grid 2x2 ===== */
-      .stats-grid {
-        display: grid;
-        grid-template-columns: repeat(2, 1fr);
-        gap: 2rem;
-        margin-top: 2rem;
-        text-align: center;
-      }
+.page-hero p {
+  font-size: 1.25rem;
+  opacity: 0.9;
+}
 
-      .stat-card img {
-        width: 60px;
-        height: 60px;
-        object-fit: cover;
-        margin-bottom: 0.5rem;
-      }
+/* ===== About Section ===== */
+.about-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 40px;
+  align-items: center;
+}
 
-      .stat-value {
-        font-size: 1.5rem;
-        font-weight: bold;
-      }
+.about-images img {
+  width: 80%;
+  border-radius: 15px;
+  box-shadow: var(--shadow-xl);
+  margin-left: 20px;
+}
 
-      .stat-label {
-        color: #555;
-      }
+.about-text h2 {
+  font-size: 2rem;
+  margin-bottom: 20px;
+  color: var(--dark);
+}
 
-      .about-grid {
-        display: grid;
-        grid-template-columns: 1fr 1fr;
-        gap: 60px;
-        align-items: center;
-      }
+.about-text p {
+  color: var(--gray);
+  line-height: 1.8;
+  margin-bottom: 15px;
+  font-size: 1.125rem;
+}
 
-      .about-image img {
-        width: 100%;
-        border-radius: 15px;
-        box-shadow: var(--shadow-xl);
-      }
+/* ===== Stats Grid 2x2 ===== */
+.stats-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 20px;
+  margin-top: 20px;
+}
 
-      .about-text h2 {
-        font-size: 2.5rem;
-        margin-bottom: 30px;
-        color: var(--dark);
-      }
+     
 
       .about-text p {
         color: var(--gray);
@@ -70,6 +63,13 @@
         font-size: 1.125rem;
       }
 
+
+.stat-card img {
+  width: 60px;
+  height: 60px;
+  object-fit: cover;
+  margin-bottom: 10px;
+}
       .stats-grid {
         display: grid;
         grid-template-columns: repeat(2, 1fr);
@@ -89,6 +89,34 @@
         margin-bottom: 10px;
       }
 
+
+/* ===== Media Queries ===== */
+@media (max-width: 768px) {
+  .page-hero h1 {
+    font-size: 2.2rem;
+  }
+
+  .page-hero p {
+    font-size: 1rem;
+  }
+
+  /* Stack About Section vertically */
+  .about-grid {
+    grid-template-columns: 1fr;
+    text-align: center;
+  }
+
+  .about-images,
+  .about-text {
+    margin: 0 auto;
+  }
+
+  /* Stack stats cards vertically */
+  .stats-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
       .stat-value {
         font-size: 1.5rem;
         font-weight: bold;
@@ -99,3 +127,4 @@
         color: var(--gray);
         font-size: 0.9rem;
       }
+

@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
- 
+
 @Injectable({
   providedIn: 'root',
 })
@@ -22,7 +22,7 @@ export class Data {
         location: 'France & Switzerland',
         image: 'https://images.unsplash.com/photo-1502602898657-3e91760cbb34?w=1200',
       },
- 
+
       {
         title: 'Tokyo Discovery',
         price: '₹1,29,500',
@@ -60,7 +60,7 @@ export class Data {
       // …more
     ];
   }
- 
+
   getTestimonials() {
     return [
       {
@@ -84,55 +84,6 @@ export class Data {
         quote: 'Loved the curated experiences in Tokyo—worth every rupee!',
         initials: 'SI',
       },
-    ];
-  }
- 
-  getDestinations() {
-    return [
-      {
-        title: 'Bali',
-        location: 'Indonesia',
-        rating: 4.8,
-        image: 'https://images.unsplash.com/photo-1526772662000-3f88f10405ff?w=1200',
-        description: 'Temples, beaches, and hidden waterfalls.',
-      },
-      {
-        title: 'Paris',
-        location: 'France',
-        rating: 4.9,
-        image: 'https://images.unsplash.com/photo-1461319805560-d7d0d4a38b6c?w=1200',
-        description: 'Art, fashion and croissants for days.',
-      },
- 
-      {
-        title: 'Kyoto',
-        location: 'Japan',
-        rating: 4.7,
-        image: 'https://images.unsplash.com/photo-1545569341-9eb8b30979d5?w=1200',
-        description: 'Shrines, gardens, and tea ceremonies.',
-      },
-      {
-        title: 'Santorini',
-        location: 'Greece',
-        rating: 4.8,
-        image: 'https://images.unsplash.com/photo-1505739773434-c7c2972b99d7?w=1200',
-        description: 'White-washed villages and sunsets.',
-      },
-      {
-        title: 'Maasai Mara',
-        location: 'Kenya',
-        rating: 4.6,
-        image: 'https://images.unsplash.com/photo-1497979410514-7c58b6b3eaa1?w=1200',
-        description: 'Big Five safaris and golden savannahs.',
-      },
-      {
-        title: 'Reykjavík',
-        location: 'Iceland',
-        rating: 4.7,
-        image: 'https://images.unsplash.com/photo-1441974231531-c6227db76b6e?w=1200',
-        description: 'Northern Lights and hot springs.',
-      },
-      // …more
     ];
   }
 }
