@@ -117,21 +117,20 @@
       <p><strong>Rating:</strong> ⭐ {{ selectedDest.rating }}</p>
       <p>{{ selectedDest.desc }}</p>
 
-      <div *ngIf="selectedDest.highlights?.length">
+      <div *ngIf="selectedDest.highlights?.length" class="highlights">
         <h3>Highlights</h3>
         <ul>
           <li *ngFor="let h of selectedDest.highlights">{{ h }}</li>
         </ul>
       </div>
 
-      <div *ngIf="selectedDest.itinerary?.length">
+      <div *ngIf="selectedDest.itinerary?.length" class="itinerary">
         <h3>Itinerary</h3>
         <ul>
           <li *ngFor="let i of selectedDest.itinerary">{{ i }}</li>
         </ul>
       </div>
 
-      <a *ngIf="selectedDest.mapUrl" [href]="selectedDest.mapUrl" target="_blank">View on Map</a>
     </div>
   </div>
 </div>
