@@ -14,9 +14,9 @@
           <h3>{{ p.title }}</h3>
           <p>{{ p.description }}</p>
           <div class="package-info">
-            <span>⏱️ {{ p.nights }}</span>
-            <span>📍 {{ p.location }}</span>
-            <span>⭐ {{ p.rating }}</span>
+            <span><mat-icon>alarm</mat-icon> {{ p.nights }}</span>
+            <span><mat-icon>place</mat-icon> {{ p.location }}</span>
+            <span><mat-icon> star </mat-icon> {{ p.rating }}</span>
           </div>
           <a class="book-btn" routerLink="/booking">Book Now</a>
         </div>

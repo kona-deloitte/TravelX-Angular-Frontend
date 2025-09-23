@@ -8,7 +8,8 @@
           <img [src]="package?.img" alt="{{ package?.title }}" class="package-image" />
           <h2 class="package-title">{{ package?.title }}</h2>
           <div class="package-location">
-            {{ package?.location }} • <span class="rating">★ {{ package?.rating }}</span>
+            {{ package?.location }} •
+            <span class="rating"><mat-icon>star</mat-icon> {{ package?.rating }}</span>
           </div>
           <p>
             {{ package?.title }} is a premium travel package offering curated experiences,

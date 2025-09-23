@@ -4,10 +4,11 @@ import { packages } from '../type';
 import { FormsModule } from '@angular/forms';
 import { PackageDetails } from '../package-details/package-details';
 import { RouterLink } from '@angular/router';
+import { MatIconModule } from '@angular/material/icon';
 
 @Component({
   selector: 'app-packages',
-  imports: [FormsModule, PackageDetails, RouterLink],
+  imports: [FormsModule, PackageDetails, RouterLink, MatIconModule],
   templateUrl: './packages.html',
   styleUrl: './packages.css',
 })

@@ -7,7 +7,12 @@
     <div class="testimonials-grid" id="testimonialsGrid">
       <div class="testimonial-card" *ngFor="let t of testimonials">
         <div class="testimonial-rating">
-          {{ '★'.repeat(t.rating) }}{{ '☆'.repeat(5 - t.rating) }}
+          <mat-icon
+            *ngFor="let star of [1, 2, 3, 4, 5]"
+            class="star-icon"
+            [ngClass]="{ filled: star <= t.rating }"
+            >star</mat-icon
+          >
         </div>
         <p class="testimonial-quote">“{{ t.quote }}”</p>
         <div class="testimonial-author">
@@ -21,4 +26,3 @@
     </div>
   </div>
 </section>
- 

@@ -4,13 +4,14 @@ import { FormsModule } from '@angular/forms';
 import { RouterModule } from '@angular/router';
 import { DestinationService } from '../../services/destination-service';
 import { destinations } from './type';
+import { MatIconModule } from '@angular/material/icon';
 
 @Component({
   selector: 'app-destination',
   standalone: true,
-  imports: [CommonModule, FormsModule, RouterModule],
+  imports: [CommonModule, FormsModule, RouterModule, MatIconModule],
   templateUrl: './destination.html',
-  styleUrls: ['./destination.css']
+  styleUrls: ['./destination.css'],
 })
 export class Destination {
   // Filters
@@ -21,8 +22,7 @@ export class Destination {
 
   // State
   resultsInfo: string = '';
-  selectedDest: destinations | null = null;   
-  
+  selectedDest: destinations | null = null;
 
   // Data
   dst: destinations[] = [];
@@ -32,28 +32,29 @@ export class Destination {
   constructor(private destinationService: DestinationService) {
     this.dst = this.destinationService.getDestinations();
     this.filteredDestinations = [...this.dst];
-    this.countries = Array.from(new Set(this.dst.map(d => d.location))).sort();
+    this.countries = Array.from(new Set(this.dst.map((d) => d.location))).sort();
     this.updateResultsInfo();
   }
 
   applyFilters() {
-    let results = [...this.dst];   
+    let results = [...this.dst];
 
     if (this.searchTerm.trim()) {
-      results = results.filter(d =>
-        d.title.toLowerCase().includes(this.searchTerm.toLowerCase()) ||
-        d.location.toLowerCase().includes(this.searchTerm.toLowerCase())
+      results = results.filter(
+        (d) =>
+          d.title.toLowerCase().includes(this.searchTerm.toLowerCase()) ||
+          d.location.toLowerCase().includes(this.searchTerm.toLowerCase())
       );
     }
 
     if (this.selectedCountry) {
-      results = results.filter(d => d.location === this.selectedCountry);
+      results = results.filter((d) => d.location === this.selectedCountry);
     }
 
     if (this.minRating) {
       const min = parseFloat(this.minRating);
       if (!isNaN(min)) {
-        results = results.filter(d => d.rating >= min);
+        results = results.filter((d) => d.rating >= min);
       }
     }
 
@@ -83,7 +84,7 @@ export class Destination {
     this.selectedCountry = '';
     this.minRating = '';
     this.sortOption = 'featured';
-    this.filteredDestinations = [...this.dst];   // ✅ FIX
+    this.filteredDestinations = [...this.dst]; // ✅ FIX
     this.updateResultsInfo();
   }
 
@@ -93,7 +94,6 @@ export class Destination {
       : 'No destinations match your search.';
   }
 
-  
   currentImageIndex: number = 0;
   private autoScrollInterval: any;
 
@@ -137,5 +137,4 @@ export class Destination {
         this.selectedDest.images.length;
     }
   }
-
 }

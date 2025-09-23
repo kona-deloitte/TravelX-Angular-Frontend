@@ -2,10 +2,11 @@ import { Component, OnInit } from '@angular/core';
 import { Data } from '../../../services/data';
 import { CommonModule } from '@angular/common';
 import { RouterLink, RouterModule } from '@angular/router';
+import { MatIconModule } from '@angular/material/icon';
 
 @Component({
   selector: 'app-popular-packages',
-  imports: [CommonModule, RouterLink, RouterModule],
+  imports: [CommonModule, RouterLink, RouterModule, MatIconModule],
   templateUrl: './popular-packages.html',
   styleUrls: ['./popular-packages.css'],
 })
