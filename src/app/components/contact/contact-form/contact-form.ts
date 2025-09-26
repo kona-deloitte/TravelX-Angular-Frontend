@@ -26,7 +26,6 @@ export class ContactForm {
 
     if (form.valid) {
       alert(' Your message has been successfully submitted! We will get back to you ASAP.');
-      console.log('Form Data:', this.contact);
 
       form.resetForm({
         preferredContact: 'Email',

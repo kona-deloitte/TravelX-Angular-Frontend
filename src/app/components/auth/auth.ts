@@ -1,8 +1,9 @@
-import { Component } from '@angular/core';
+import { Component, inject } from '@angular/core';
 import { Router } from '@angular/router';
 import { Storage } from '../../services/storage';
 import { FormsModule } from '@angular/forms';
 import { CommonModule } from '@angular/common';
+import { AuthService } from '../../services/auth';
 
 @Component({
   selector: 'app-auth',
@@ -13,7 +14,7 @@ import { CommonModule } from '@angular/common';
 })
 export class Auth {
   loginMode = true;
-
+  authService = inject(AuthService);
   signupData = { fullName: '', email: '', password: '', confirmPassword: '' };
   loginData = { email: '', password: '' };
 
@@ -47,12 +48,13 @@ export class Auth {
   }
 
   onLogin() {
-    const result = this.storage.login(this.loginData.email, this.loginData.password);
-    if (result === 'Login successful!') {
-      this.router.navigate(['']);
-      window.dispatchEvent(new Event('storage')); // Update header
-    } else {
-      alert(result);
-    }
+    this.authService.login(this.loginData.email, this.loginData.password).subscribe((success) => {
+      if (success) {
+        this.router.navigate(['']);
+        window.dispatchEvent(new Event('storage')); // Update header
+      } else {
+        alert('Invalid Credentials');
+      }
+    });
   }
 }

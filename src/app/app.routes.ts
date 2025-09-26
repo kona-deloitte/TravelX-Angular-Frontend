@@ -15,4 +15,5 @@ export const routes: Routes = [
   { path: 'booking', component: Booking },
   { path: 'contact', component: Contact },
   { path: 'auth', component: Auth },
+  { path: '**', redirectTo: '' },
 ];
