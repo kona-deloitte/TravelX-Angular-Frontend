@@ -12,6 +12,7 @@ export class DestinationService {
       {
         id: 1,
         title: 'Bali Paradise',
+        title1:'Bali',
         location: 'Indonesia',
         rating: 4.8,
         desc: 'Relax on pristine beaches with crystal clear water.',
@@ -25,6 +26,7 @@ export class DestinationService {
       {
         id: 2,
         title: 'Santorini Escape',
+        title1:'Santorini',
         location: 'Greece',
         rating: 4.9,
         desc: 'Experience sunsets, blue domes, and Mediterranean cuisine.',
@@ -38,6 +40,7 @@ export class DestinationService {
       {
         id: 3,
         title: 'Tokyo Explorer',
+        title1:'Tokyo',
         location: 'Japan',
         rating: 4.9,
         desc: 'Experience futuristic cities and traditional temples.',
@@ -51,6 +54,7 @@ export class DestinationService {
     {
         id: 4,
         title: 'Swiss Alps Adventure',
+        title1:'Swiss Alps',
         location: 'Switzerland',
         rating: 4.7,
         desc: 'Snow-capped peaks and scenic train rides.',
@@ -65,6 +69,7 @@ export class DestinationService {
         {
             id: 5,
             title: 'Dubai Luxury',
+            title1:'Dubai',
             location: 'UAE',
             rating: 4.6,
             desc: 'Experience opulence in the desert city.',

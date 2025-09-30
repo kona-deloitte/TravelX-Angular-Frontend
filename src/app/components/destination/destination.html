@@ -23,12 +23,6 @@
       </div>
 
       <div class="filter-wrap">
-        <!-- <select [(ngModel)]="selectedCountry" (change)="applyFilters()" title="Filter by Country">
-          <option value="">All countries</option>
-          <option *ngFor="let country of (destinations.map(d => d.location) | unique)" [value]="country">
-            {{ country }}
-          </option>
-        </select> -->
         <select [(ngModel)]="selectedCountry" (change)="applyFilters()">
           <option value="">All Countries</option>
           <option *ngFor="let country of countries" [value]="country">
@@ -80,19 +74,13 @@
           <p>{{ d.desc }}</p>
 
           <div class="actions">
-            <a [routerLink]="['/booking']" [queryParams]="{ destination: d.slug }" class="book-now"
-              >Book Now</a
-            >
-            <button (click)="selectedDest = d" class="view-details">View Details</button>
+            <a [routerLink]="['/booking']" [queryParams]="{ destination: d.slug }" class="book-now">Book Now</a>
+            <button (click)="openDestination(d)" class="view-details">View Details</button>
           </div>
         </div>
       </div>
     </div>
 
-    <!-- empty / results count -->
-    <div id="resultsInfo" style="margin-top: 18px; color: var(--gray)">
-      {{ resultsInfo }}
-    </div>
   </div>
 </main>
 

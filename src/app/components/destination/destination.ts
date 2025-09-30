@@ -5,11 +5,14 @@ import { RouterModule } from '@angular/router';
 import { DestinationService } from '../../services/destination-service';
 import { destinations } from './type';
 import { MatIconModule } from '@angular/material/icon';
+import { PexelsService } from '../../services/pexels-service';
 
 @Component({
   selector: 'app-destination',
   standalone: true,
   imports: [CommonModule, FormsModule, RouterModule, MatIconModule],
+
+
   templateUrl: './destination.html',
   styleUrls: ['./destination.css'],
 })
@@ -29,13 +32,13 @@ export class Destination {
   filteredDestinations: destinations[] = [];
   countries: string[] = [];
 
-  constructor(private destinationService: DestinationService) {
+  isModalOpen = false;
+  constructor(private destinationService: DestinationService,private pexelsService: PexelsService) {
     this.dst = this.destinationService.getDestinations();
     this.filteredDestinations = [...this.dst];
     this.countries = Array.from(new Set(this.dst.map((d) => d.location))).sort();
     this.updateResultsInfo();
   }
-
   applyFilters() {
     let results = [...this.dst];
 
@@ -84,7 +87,7 @@ export class Destination {
     this.selectedCountry = '';
     this.minRating = '';
     this.sortOption = 'featured';
-    this.filteredDestinations = [...this.dst]; // ✅ FIX
+    this.filteredDestinations = [...this.dst]; 
     this.updateResultsInfo();
   }
 
@@ -99,24 +102,30 @@ export class Destination {
 
   // Called when user clicks "View Details"
   openDestination(dest: destinations) {
-    this.selectedDest = dest;
-    this.currentImageIndex = 0;
+  this.selectedDest = dest;
+  this.currentImageIndex = 0;
 
-    if (this.autoScrollInterval) {
-      clearInterval(this.autoScrollInterval);
-    }
-
-    // Auto scroll every 3 seconds
-    this.autoScrollInterval = setInterval(() => {
-      if (this.selectedDest?.images && this.selectedDest.images.length > 0) {
-        this.currentImageIndex = (this.currentImageIndex + 1) % this.selectedDest.images.length;
-      }
-    }, 3000);
+  if (this.autoScrollInterval) {
+    clearInterval(this.autoScrollInterval);
   }
+
+  this.pexelsService.searchImages(dest.title1, 5).subscribe(res => {
+    if (res.photos?.length) {
+      this.selectedDest!.images = res.photos.map((p: any) => p.src.medium);
+    }
+  });
+
+  this.autoScrollInterval = setInterval(() => {
+    if (this.selectedDest?.images?.length) {
+      this.currentImageIndex = (this.currentImageIndex + 1) % this.selectedDest.images.length;
+    }
+  }, 6000);
+}
 
   // Called when closing modal
   closeDestination() {
     this.selectedDest = null;
+    document.body.classList.remove('modal-open');
     this.currentImageIndex = 0;
 
     if (this.autoScrollInterval) {
